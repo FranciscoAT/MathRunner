@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Startup</title>
+    <title>Start Up</title>
     
     <h1>Choose Your Character!</h1>
     <script src="startup.js"></script>
@@ -9,14 +9,18 @@
   
   <body>
     <div id="boy">
-      <button type="button" value="Boy" onclick=setGender("boy")>Boy</button>
+      <button type="button" value="Boy" onclick=new Character("boy")>Boy</button>
     </div>
     
     <div id="girl">
-      <button type="button" value="Girl" onclick=setGender("girl")>Girl</button>
+      <a href="test.html"><button type="button" value="Girl" onclick=character.setGender("girl")>Girl</button></a>
     </div>
+	
+	
     
     <input type="text" value="Enter Your Name">
     <button type="submit" value="Submit">Submit</button>
+	
+	<p id="demo">hi</p>
   </body>
 </html>

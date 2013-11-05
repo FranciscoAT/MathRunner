@@ -11,7 +11,13 @@ setOperator = function (a) {
 
 getOperator = function () {
 	for (var i = 0; i < operator.length; i++) {
-		$('#P').append(operator[i])
+		if(operator[i] == false){
+			$('#P').append("false")
+		}
+		
+		else{
+			$('#P').append(operator[i])
+		}
 	}
 }
 store = function () {

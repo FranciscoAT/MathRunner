@@ -2,7 +2,7 @@
 <html>
 <head>
 <script src="jQuery.js"></script>
-<script src="questionGenerator.js"></script>
+<script src="operator.js"></script>
 </head>
 
 <body>
@@ -12,16 +12,17 @@
 	<input type="button" class="operator" value="Subtraction" onclick=setOperator(1)> 
 	<input type="button" class="operator" value="Multiplication" onclick=setOperator(2)> 
 	<input type="button" class="operator" value="Division" onclick=setOperator(3)> 
-	<input type="button" id="submitButton" value="Start Game" onclick=getOperator()>
+	<a href="game.html"><input type="button" id="startGame" value="Start Game" onclick=store()></a>
 
-	<p id="P">
+	<input type="button" id="instructionButton" value="Instructions">
+	<input type="button" id="highScoreButton" value="High Scores!">
+	<input type="button" id="storeButton" value="Store">
 	
-	</p>
-	
-	<a href="testValues.html"><input type="button" value="testValues.html" onclick=store()></a>
-	
-
-
+	<script>
+	$(".operator").click(function(){
+		$(this).toggleClass('red');
+	});
+	</script>
 
 
 

@@ -1,16 +1,18 @@
-function localstorage.Character(type){
-this.type = type;
+
+setGender = function(g){
+
+localStorage.gender = g;
+
+document.getElementById("demo").innerHTML=localStorage.gender + "h";
 }
-//localstorage.character = {};
 
-character.gender;
-
-character.setGender = function(g){
-gender = g;
-document.getElementById("demo").innerHTML=gender;
+setName = function(){
+localStorage.name = document.getElementById("name").value;
 }
-  
-character.getGender = function(){
-	
 
+getPlayer = function(){
+$('#demo').append(localStorage.gender)
+//document.getElementById("demo").innerHTML=localStorage.gender + "y";
+
+$('#demo').append(localStorage.name)
 }

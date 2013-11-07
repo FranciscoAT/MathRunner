@@ -1,15 +1,35 @@
-body{
+#d1-0{
+	height:600px;
+	width:1024px;
 	background-color:blue;
-	background-image:url("");
-	background-repeat:no-repeat;
+	border:2px solid black;
 }
 
 h1{
 	text-align:center;
-	
 }
 
 .colorToggle{
 	background-color:red;
 }
 
+.operator{
+	height:100px;
+	width:100px;
+}
+
+#instructionButton{
+	height:75px;
+	width:125px;
+
+}
+
+#highScoreButton{
+	height:75px;
+	width:125px;
+}
+
+#storeButton{
+	height:75px;
+	width:125px;
+}

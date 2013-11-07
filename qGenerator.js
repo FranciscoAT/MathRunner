@@ -1,29 +1,38 @@
 var operator = JSON.parse(localStorage["operator"]);
-var operation;
-var num;
+
+getQuestion = function(){
+
+document.getElementById("question").innerHTML=operator[0] + ""+ operator[1] + operator[2] + operator[3] +"y";
+$('#demo').append(operator[0] +"y")
 
 
-
-var getQuestion = function(){
-
-document.getElementById("demo").innerHTML=operator[0] + "y";
-//demo').append(operator[0] +"y")
-
-/*	do
-	{
+	var operation;
 	
+	var num;
+	
+	do{
 		num = Math.floor(Math.random()*3);
-		}
-	while(!operator[num])
+	}
+	while(operator[num] == false);
 	
-	operation = operators[num];
-		
+	switch(num){
+	case(0):
+	operation = "+";
+	break;
+	case(1):
+	operation = "-";
+	break;
+	case(2):
+	operation = "*";
+	break;
+	case(3):
+	operation = "/";
+	break;
+	}
+	
 	var one = Math.floor(Math.random()*10 + 1), two = Math.floor(Math.random()*10 + 1);
 	
 	var question = one + " " + operation + " " + two + " = ";
 	
 	$('#question').append(question)
-	
-	*/
-
 }

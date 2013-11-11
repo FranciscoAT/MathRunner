@@ -1,11 +1,13 @@
 var operator = new Array(false, false, false, false);
-
+var clicked = 0;
 
 setOperator = function (a) {
 	if (operator[a] == false) {
 		operator[a] = true;
+		clicked++;
 	} else {
 		operator[a] = false;
+		clicked--;
 	}
 }
 
@@ -21,6 +23,14 @@ getOperator = function () {
 	}
 }
 store = function () {
-	localStorage["operator"] = JSON.stringify(operator);
+	if(clicked>0){
+		localStorage["operator"] = JSON.stringify(operator);
+		location.href= "game.html"
+	}
+	else{
+		alert("No operations selected!");
+	}
 }
+
+
 

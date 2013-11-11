@@ -1,7 +1,6 @@
 #d1-0{
 	height:600px;
 	width:1024px;
-	background-color:blue;
 	border:2px solid black;
 }
 
@@ -14,22 +13,46 @@ h1{
 }
 
 .operator{
+	position:absolute;
 	height:100px;
 	width:100px;
+	top:200px;
 }
 
+
 #instructionButton{
-	height:75px;
-	width:125px;
+position: absolute;
+	left:450px;
+	top:450px;
+	height:100px;
+	width:150px;
 
 }
 
 #highScoreButton{
-	height:75px;
-	width:125px;
+	position: absolute;
+	left:50px;
+	top:450px;
+	height:100px;
+	width:150px;
 }
 
 #storeButton{
-	height:75px;
-	width:125px;
+	position: absolute;
+	left:250px;
+	top:450px;
+	height:100px;
+	width:150px;
+}
+
+#startGame{
+	position: absolute;
+	left:824px;
+	top:450px;
+	height:100px;
+	width:150px;
+}
+
+input{
+border-radius:20px;
 }

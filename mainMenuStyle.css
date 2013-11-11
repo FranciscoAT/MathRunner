@@ -1,4 +1,4 @@
-#d1-0{
+body{
 	height:600px;
 	width:1024px;
 	border:2px solid black;
@@ -9,7 +9,7 @@ h1{
 }
 
 .colorToggle{
-	background-color:red;
+	background-color:#5959A7;
 }
 
 .operator{
@@ -19,6 +19,21 @@ h1{
 	top:200px;
 }
 
+#addButton{
+	left:50px;
+}
+
+#subButton{
+	left:200px;
+}
+
+#multiButton{
+	left:350px
+}
+
+#divButton{
+	left:500px;
+}
 
 #instructionButton{
 position: absolute;
@@ -55,4 +70,5 @@ position: absolute;
 
 input{
 border-radius:20px;
+border: solid black 2px;
 }

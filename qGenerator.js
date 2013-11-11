@@ -1,20 +1,26 @@
 var operator = JSON.parse(localStorage["operator"]);
 
+var question;
+
 getQuestion = function(){
 
-document.getElementById("question").innerHTML=operator[0] + ""+ operator[1] + operator[2] + operator[3] +"y";
-$('#demo').append(operator[0] +"y")
+	document.getElementById("demo").innerHTML=operator;
 
-
-	var operation;
+	var yay = false;
+	for(i=0;i<operator.length;i++)
+		if(operator[i])
+			yay = true;
 	
+	if(!yay)
+		operator[0]=true;
+
 	var num;
-	
 	do{
 		num = Math.floor(Math.random()*3);
 	}
 	while(operator[num] == false);
 	
+	var operation;
 	switch(num){
 	case(0):
 	operation = "+";
@@ -32,7 +38,19 @@ $('#demo').append(operator[0] +"y")
 	
 	var one = Math.floor(Math.random()*10 + 1), two = Math.floor(Math.random()*10 + 1);
 	
-	var question = one + " " + operation + " " + two + " = ";
+	question = one + " " + operation + " " + two + " = ";
 	
-	$('#question').append(question)
+	document.getElementById("question").innerHTML=question;
+}
+
+getAnswer = function(){
+	if(operation == "+")
+		
+	
+	if(operation == "-")
+	
+	if(operation == "*")
+	
+	if(operation == "/")
+
 }

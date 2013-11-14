@@ -1,7 +1,12 @@
 var operator = JSON.parse(localStorage["operator"]);
 
 var operation, one, two;
+
 var correct;
+
+var points = 0;
+
+var energy = 100;
 
 getQuestion = function(){
 
@@ -16,7 +21,7 @@ getQuestion = function(){
 	if(!yay)
 		operator[0]=true;
 	//end little check
-
+	
 	var num;
 	do{
 		num = Math.floor(Math.random()*4);
@@ -74,14 +79,29 @@ getAnswer = function(){
 	correct = Math.floor(Math.random()*4+1);
 		
 	$("#answer" + correct).attr("value", answer)
-
+	
+	for(var i = 1; i < 5; i++)
+	{
+		if(correct != i)
+			$("#answer" + i).attr("value", Math.floor(Math.random()*10+1)
+	}
 }
 
 isCorrect = function(button){
 	
 	if(button == correct)
-		document.getElementById("test").innerHTML="CORRECT!";
+	{
+		points += 5;
+		localStorage.points = points;
+		document.getElementById("test").innerHTML="CORRECT!" + localStorage.points;
+	}
 	else
-		document.getElementById("test").innerHTML="WRONG";
-
+	{
+		energy -= 5;
+		localStorage.energy = energy;
+		document.getElementById("test").innerHTML="WRONG" + localStorage.energy;
+	}
+	
+	getQuestion();
+	getAnswer();
 }

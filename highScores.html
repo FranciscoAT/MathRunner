@@ -5,7 +5,28 @@
 		<script src="jQuery.js"></script>
 	</head>
 	<body>
-		<div id="div1">
+	
+		<ul class="tabs">
+			<li><a href="#">Tab 1</a></li>
+			<li><a href="#">Tab 2</a></li>
+			<li><a href="#">Tab 3</a></li>
+		</ul>
+		
+		<div class="panes">
+			<div>First tab content. Tab contents are called "panes"</div>
+			<div>Second tab content</div>
+			<div>Third tab content</div>
+		</div>
+		
+	
+		<a href="mainMenu.html"><input type="button" id="returnButton" value="RETURN"/></a>
+		<script>
+			$(function() {
+			$("ul.tabs").tabs("div.panes > div");
+			});
+		</script>
+		
+				<div id="div1">
 			<table border="1">
 				<tr>
 					<th colspan="4">HIGHSCORES</th>
@@ -78,6 +99,6 @@
 				</tr>
 			</table>		
 		</div>
-		<a href="mainMenu.html"><input type="button" id="returnButton" value="RETURN"/></a>
+		
 	</body>
 </html>

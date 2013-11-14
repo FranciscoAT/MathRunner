@@ -3,30 +3,41 @@
 		<meta charset="utf-8">
 		<link rel="stylesheet" href="highScoresStyle.css" type="text/css"/>
 		<script src="jQuery.js"></script>
+		<script src="highScoreJS.js"></script>
 	</head>
 	<body>
-	
-		<ul class="tabs">
-			<li><a href="#">Tab 1</a></li>
-			<li><a href="#">Tab 2</a></li>
-			<li><a href="#">Tab 3</a></li>
-		</ul>
+		<input type="button" value="tab1" onclick=showHide(0)>
+		<input type="button" value="tab2" onclick=showHide(1)>
+		<input type="button" value="tab3" onclick=showHide(2)>
+		<input type="button" value="tab4" onclick=showHide(3)>
 		
-		<div class="panes">
-			<div>First tab content. Tab contents are called "panes"</div>
-			<div>Second tab content</div>
-			<div>Third tab content</div>
+		<div id="1op">
+			<p>TAB 1</p>
 		</div>
 		
-	
-		<a href="mainMenu.html"><input type="button" id="returnButton" value="RETURN"/></a>
-		<script>
-			$(function() {
-			$("ul.tabs").tabs("div.panes > div");
-			});
-		</script>
+		<div id="2op">
+			<p>TAB 2</p>
+		</div>
 		
-				<div id="div1">
+		<div id="3op">
+			<p>TAB 3</p>
+		</div>
+		
+		<div id="4op">
+			<p>TAB 4</p>
+		</div>
+		
+		<script>
+			$("#1op").show()
+			$("#2op").hide()
+			$("#3op").hide()
+			$("#4op").hide()
+		</script>
+
+		
+	
+		<a href="mainMenu.html"><input type="button" id="returnButton" value="RETURN"/></a>		
+		<div id="div1">
 			<table border="1">
 				<tr>
 					<th colspan="4">HIGHSCORES</th>
@@ -98,7 +109,6 @@
 					<td id="10s">score</td>
 				</tr>
 			</table>		
-		</div>
-		
+		</div>	
 	</body>
 </html>

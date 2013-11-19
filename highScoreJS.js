@@ -26,4 +26,7 @@ showHide = function(c){
 			break;
 	}
 }
-			
+
+test = function(){
+	$("#1n").text("test")
+}

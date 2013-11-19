@@ -1,25 +1,28 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Start Up</title>
-    
     <h1>Choose Your Character!</h1>
     <script src="startup.js"></script>
 	<script src="jQuery.js"></script>
   </head>
   
   <body>
-    <div id="boy">
-      <input type="button" value="Boy" onclick=setGender("boy")>
-    </div>
-    
-    <div id="girl">
-      <input type="button" value="Girl" onclick=setGender("girl")>
-    </div>
-	
-    <input type="text" placeholder="Enter Your Name" maxlength="20" id="name">
-    <a href="mainMenu.html"><input type="submit" value="Submit" onclick=setName()></a>
-	
-	<p id="demo">hi</p>
+			
+  
+	<div id="startUp">
+		<h1>Choose Your Character!</h1>
+		<div id="boy">
+		  <input type="button" value="Boy" onclick=setGender("boy")>
+		</div>
+		
+		<div id="girl">
+		  <input type="button" value="Girl" onclick=setGender("girl")>
+		</div>
+		
+		<input type="text" placeholder="Enter Your Name" maxlength="20" id="name">
+		<a href="mainMenu.html"><input type="submit" value="Submit" onclick=setName()></a>
+		
+		<p id="demo">hi</p>
+	</div>
   </body>
 </html>

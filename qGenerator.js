@@ -8,6 +8,10 @@ var points = 0;
 
 var energy = 100;
 
+var questions = 0;
+
+var difficulty = 0;
+
 getQuestion = function(){
 
 	document.getElementById("demo").innerHTML=operator;
@@ -82,8 +86,9 @@ getAnswer = function(){
 	
 	for(var i = 1; i < 5; i++)
 	{
+		
 		if(correct != i)
-			$("#answer" + i).attr("value", Math.floor(Math.random()*10+1)
+			$("#answer" + i).attr("value", Math.floor(Math.random()*15+1))
 	}
 }
 
@@ -100,6 +105,14 @@ isCorrect = function(button){
 		energy -= 5;
 		localStorage.energy = energy;
 		document.getElementById("test").innerHTML="WRONG" + localStorage.energy;
+	}
+	
+	questions++;
+	
+	if(questions == 5)
+	{
+		difficulty++;
+		questions = 0;
 	}
 	
 	getQuestion();

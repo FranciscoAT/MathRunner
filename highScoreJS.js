@@ -28,5 +28,5 @@ showHide = function(c){
 }
 
 test = function(){
-	$("#1n").text("test")
+	$("#rawr").load("test.txt")
 }

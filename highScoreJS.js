@@ -26,7 +26,3 @@ showHide = function(c){
 			break;
 	}
 }
-
-test = function(){
-	$("#rawr").load("test.txt")
-}

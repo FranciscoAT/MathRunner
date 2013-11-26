@@ -4,11 +4,25 @@
     <h1>Choose Your Character!</h1>
     <script src="startup.js"></script>
 	<script src="jQuery.js"></script>
+	
+	<style>
+	body{
+	height:600px;
+	width:1024px;
+	border:2px solid black;
+	}
+	
+	#openScreen{
+	background-image:url("welcomeScreen.jpg");
+	}
+	</style>
   </head>
   
   <body>
-			
-  
+	<div id="openScreen"></div>
+	<script>
+	$("#openScreen").fadeIn( 400 ).delay( 800 ).slideUp(100);
+	</script>
 	<div id="startUp">
 		<h1>Choose Your Character!</h1>
 		<div id="boy">

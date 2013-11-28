@@ -5,12 +5,15 @@ var operation, one, two;
 var correct;
 
 var points = 0;
+var coins = 0;
 
 var energy = 100;
 
 var questions = 0;
 
 var difficulty = 0;
+
+var timer = 30;
 
 getQuestion = function(){
 
@@ -32,7 +35,20 @@ getQuestion = function(){
 	}
 	while(operator[num] == false);
 	
-	one = Math.floor(Math.random()*10 + 1), two = Math.floor(Math.random()*10 + 1);
+	switch(difficulty){
+	case(0):
+		one = Math.floor(Math.random()*10 + 1), two = Math.floor(Math.random()*10 + 1);
+		break;
+	case(1):
+		one = Math.floor(Math.random()*100+1), two = Math.floor(Math.random()*10+1);
+		break;
+	case(2):
+		one = Math.floor(Math.random()*100+1), two = Math.floor(Math.random()*100+1);
+		break;
+	}
+	
+	
+	
 	
 	switch(num){
 	case(0):
@@ -88,8 +104,29 @@ getAnswer = function(){
 	{
 		
 		if(correct != i)
-			$("#answer" + i).attr("value", Math.floor(Math.random()*15+1))
+		{
+			var otherAnswer;
+			
+			do{
+			otherAnswer = Math.floor(Math.random()*(answer*3)+answer/2);
+			}while(otherAnswer == answer)
+			
+			$("#answer" + i).attr("value", otherAnswer)
+		}
 	}
+	
+	var myVar=setInterval(function(){timer()},1000)
+}
+
+startTimer = function(){
+	setInterval(function(){document.getElementById("timer").innerHTML=timer;
+	timer -= 1;}, 1000);
+}
+
+function timer(){
+//	$("#timer").append("a")
+	document.getElementById("timer").innerHTML=timer;
+	timer -= 1;
 }
 
 isCorrect = function(button){
@@ -97,8 +134,9 @@ isCorrect = function(button){
 	if(button == correct)
 	{
 		points += 5;
+		coins += 10;
 		localStorage.points = points;
-		document.getElementById("test").innerHTML="CORRECT!" + localStorage.points;
+		document.getElementById("test").innerHTML="CORRECT!" + localStorage.points + "coins:" + coins;
 	}
 	else
 	{
@@ -109,9 +147,10 @@ isCorrect = function(button){
 	
 	questions++;
 	
-	if(questions == 5)
+	if(questions == 10)
 	{
-		difficulty++;
+		if(difficulty < 2)
+			difficulty++;
 		questions = 0;
 	}
 	

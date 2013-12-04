@@ -26,3 +26,12 @@ body{
 	top:0px;
 	border: 1px solid #000000;
 }
+
+#runner{
+	background-image:url("male2.jpg");
+	width:100px;
+	height:178px;
+	position:absolute;
+	left:10px;
+	top:360px;
+}

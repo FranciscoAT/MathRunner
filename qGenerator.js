@@ -13,7 +13,6 @@ var questions = 0;
 
 var difficulty = 0;
 
-var timer = 30;
 
 getQuestion = function(){
 
@@ -29,6 +28,7 @@ getQuestion = function(){
 		operator[0]=true;
 	//end little check
 	
+	//generating question with random operator 
 	var num;
 	do{
 		num = Math.floor(Math.random()*4);
@@ -47,9 +47,6 @@ getQuestion = function(){
 		break;
 	}
 	
-	
-	
-	
 	switch(num){
 	case(0):
 		operation = "+";
@@ -67,7 +64,6 @@ getQuestion = function(){
 		break;
 	case(3):
 		operation = "/";
-		switcher = true;
 		one *= two; //to avoid decimal answer values, set one to the product of one and two so that the quotient is a whole number
 		break;
 	}
@@ -75,10 +71,8 @@ getQuestion = function(){
 	var question = one + " " + operation + " " + two + " = ";
 	
 	document.getElementById("question").innerHTML=question;
-}
-
-getAnswer = function(){
-
+	
+	//generating answer with one correct and three incorrect answers
 	var answer;
 	
 	switch(operation){
@@ -102,7 +96,6 @@ getAnswer = function(){
 	
 	for(var i = 1; i < 5; i++)
 	{
-		
 		if(correct != i)
 		{
 			var otherAnswer;
@@ -115,35 +108,20 @@ getAnswer = function(){
 		}
 	}
 	
-	var myVar=setInterval(function(){timer()},1000)
+	startTimer(10);
 }
 
-startTimer = function(){
-	setInterval(function(){document.getElementById("timer").innerHTML=timer;
-	timer -= 1;}, 1000);
-}
-
-function timer(){
-//	$("#timer").append("a")
-	document.getElementById("timer").innerHTML=timer;
-	timer -= 1;
+startTimer = function(timer){
+	var countdown = setInterval(function(){document.getElementById("timer").innerHTML=timer;
+	if(timer > 0) timer -= 1; else{clearInterval(countdown);wrongAns("timeout")}}, 1000);
 }
 
 isCorrect = function(button){
 	
 	if(button == correct)
-	{
-		points += 5;
-		coins += 10;
-		localStorage.points = points;
-		document.getElementById("test").innerHTML="CORRECT!" + localStorage.points + "coins:" + coins;
-	}
+		rightAns();
 	else
-	{
-		energy -= 5;
-		localStorage.energy = energy;
-		document.getElementById("test").innerHTML="WRONG" + localStorage.energy;
-	}
+		wrongAns();
 	
 	questions++;
 	
@@ -155,5 +133,23 @@ isCorrect = function(button){
 	}
 	
 	getQuestion();
-	getAnswer();
+}
+
+rightAns = function(){
+	points += 5;
+	coins += 10;
+	localStorage.points = points;
+	localStorage.coins = coins;
+	document.getElementById("test").innerHTML="CORRECT!" + localStorage.points + "coins:" + coins;
+}
+
+wrongAns = function(reason){
+	energy -= 5;
+	localStorage.energy = energy;
+	document.getElementById("test").innerHTML="WRONG" + localStorage.energy;
+	
+	if(reason == "timeout")
+	;
+	else
+	;
 }

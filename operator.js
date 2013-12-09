@@ -32,5 +32,15 @@ store = function () {
 	}
 }
 
+store2 = function () {
+	if(clicked>0){
+		localStorage["operator"] = JSON.stringify(operator);
+		location.href= "game2.html"
+	}
+	else{
+		alert("No operations selected!");
+	}
+}
+
 
 

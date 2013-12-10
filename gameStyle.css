@@ -8,7 +8,6 @@ body{
 }
 
 #background{
-	background-image:url("testBackground.jpg");
 	width:724px;
 	height:600px;
 	position:absolute;

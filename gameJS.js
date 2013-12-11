@@ -1,15 +1,12 @@
-function animate(myRectangle, canvas, ctx) {
-	var x = 0;
-		function test(){
-			setTimeout(function(){	
-				myRectangle.x += x;
-				$('#temp').append(myRectangle.x)
-				drawRectangle(myRectangle, ctx);
-				ctx.clearRect(x,75,50,25);
-				x += 2;				
-				test();
-			},10);
-		}
+function animate(myRectangle, canvas, ctx, x) {
+	setTimeout(function(){	
+		myRectangle.x += x;
+		drawRectangle(myRectangle, ctx);
+		//ctx.clearRect(x,75,50,25);
+		alert("test");
+		x += 2;	
+	},1000);
+	animate(myRectangle, canvas, ctx, x);
 }	
 
 function drawRectangle(myRectangle, ctx) {
@@ -30,8 +27,10 @@ height: 25,
 borderWidth: 2.5
 };
 	  
-	  
+var x = 0;
 var canvas = document.getElementById('background');
 var ctx = canvas.getContext('2d');
 
-animate(myRectangle, canvas, ctx);
+//drawRectangle(myRectangle, ctx);
+
+animate(myRectangle, canvas, ctx, x);

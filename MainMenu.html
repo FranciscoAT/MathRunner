@@ -6,13 +6,14 @@
 		<script src="operator.js"></script>
 	</head>
 	<body>
+		<div>
 			<h1>Coureur de Mathématiques</h1>
 
-			<input type="button" class="operator" id="addButton" value="Addition" onclick=setOperator(0)> 
-			<input type="button" class="operator" id="subButton" value="Subtraction" onclick=setOperator(1)> 
-			<input type="button" class="operator" id="multiButton" value="Multiplication" onclick=setOperator(2)> 
-			<input type="button" class="operator" id="divButton" value="Division" onclick=setOperator(3)> 
-			<input type="button" id="startGame" value="Start Game" onclick=store()>
+			<input type="button" class="operator" id="addButton" onclick=setOperator(0)> 
+			<input type="button" class="operator" id="subButton" onclick=setOperator(1)> 
+			<input type="button" class="operator" id="multiButton" onclick=setOperator(2)> 
+			<input type="button" class="operator" id="divButton" onclick=setOperator(3)> 
+			<input type="button" id="startGame" onclick=store()>
 			<input type="button" id="startGame2" value="Start Game GUI TEST" onclick=store2()>
 			
 			<script>
@@ -21,8 +22,9 @@
 				});
 			</script>
 
-			<a href="instructionScreen.html"><input type="button" id="instructionButton" value="Instructions"></a>
+			<a href="instructionScreen.html"><input type="button" id="instructionButton"></a>
 			<a href="highScores.html"><input type="button" id="highScoreButton" value="High Scores!"></a>
-			<a href="storeScreen.html"><input type="button" id="storeButton" value="Store"></a>
+			<a href="storeScreen.html"><input type="button" id="storeButton"></a>
+		</div>
 	</body>
 </html>

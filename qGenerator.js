@@ -47,6 +47,8 @@ getQuestion = function(){
 		break;
 	}
 	
+	prompt(operation + " " + one + " " + two);
+	
 	switch(num){
 	case(0):
 		operation = "+";
@@ -68,10 +70,13 @@ getQuestion = function(){
 		break;
 	}
 	
+	prompt("pass");
+	
 	var question = one + " " + operation + " " + two + " = ";
 	
 	document.getElementById("question").innerHTML=question;
 	
+	prompt("pass again");
 	//generating answer with one correct and three incorrect answers
 	var answer;
 	
@@ -89,6 +94,8 @@ getQuestion = function(){
 		answer = one/two;
 		break;
 	}
+	
+	prompt(answer);
 	
 	correct = Math.floor(Math.random()*4+1);
 		

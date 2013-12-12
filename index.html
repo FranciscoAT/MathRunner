@@ -8,12 +8,21 @@
   </head>
   
   <body>
+	<div id="loadScreen">
+		<script>
+			setTimeout(function(){
+			$('#loadScreen').fadeOut(250, function(){ $(this).remove(); });
+			},3000);
+		</script>
+	</div>
 	<div id="background">
+		<script>
+		</script>
 		<h1 align="center">Choose Your Character!</h1>
 	    <input type="button" class="gender" id="boy" onclick=setGender("boy")>	
-	    <input type="button" class="gender" id="girl" value="Girl" onclick=setGender("girl")>		
+	    <input type="button" class="gender" id="girl" onclick=setGender("girl")>		
 		<input type="text" placeholder="Enter Your Name" maxlength="20" id="name">
-		<a href="mainMenu.html"><input type="submit" id="submit" value="Submit" onclick=setName()></a>
+		<input type="button" id="submit" onclick=setName()>
 		<p id="demo">hi</p>
 		
 		<script>

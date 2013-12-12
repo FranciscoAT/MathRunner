@@ -7,13 +7,24 @@ body{
 	border:2px solid black;
 }
 
-div{
+#loadScreen{
+	position: absolute;
+	left: 0px;
+	top:0px;
+	height:600px;
+	width:1024px;
+	background-image:url("welcomeScreen.jpg");
+	z-index:2;
+}
+
+#background{
 	position: absolute;
 	left: 0px;
 	top:0px;
 	height:600px;
 	width:1024px;
 	background-image:url("indexBackground.jpg");
+	z-index:1;
 }
 
 h1{
@@ -25,7 +36,7 @@ h1{
 input{
 	position: absolute;
 	border-radius:20px;
-	border: solid black 5px;
+	border: solid transparent 5px;
 }
 
 .colorToggle{
@@ -34,6 +45,7 @@ input{
 
 .gender{
 	position:absolute;
+	background: transparent;
 }
 
 #boy{
@@ -41,5 +53,35 @@ input{
 	left:260px;
 	width:130px;
 	height:400px;
+}
+
+#girl{
+	top:5px;
+	left:670px;
+	width:125px;
+	height:400px;
+	
+}
+
+#name{
+	left:420px;
+	top:205px;
+	width:195px;
+	height:40px;
+	border-radius:0px;
+	border: solid black 1px;
+	font-size:20px;
+}
+
+#submit{
+	left:460px;
+	top:260px;
+	height:80px;
+	width:125px;
 	background: transparent;
+}
+
+p{
+	position:absolute;
+	top:100px;
 }

@@ -61,7 +61,6 @@ h1{
 	height:120px;
 	width:140px;
 	background: transparent;
-    border: none !important;
 }
 
 #highScoreButton{
@@ -69,15 +68,14 @@ h1{
 	top:450px;
 	height:100px;
 	width:150px;
+	border: solid black 5px;
 }
 #storeButton{
-
 	left:550px;
 	top:420px;
 	height:60px;
 	width:120px;	
 	background: transparent;
-    border: none !important;
 }
 
 #startGame{
@@ -86,11 +84,11 @@ h1{
 	height:125px;
 	width:210px;
 	background: transparent;
-    border: none !important;
 }
 
 #startGame2{
 	top:150px;
+	border: solid black 5px;
 }
 
 input{

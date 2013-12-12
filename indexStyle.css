@@ -1,0 +1,45 @@
+body{
+	position: absolute;
+	left: 0px;
+	top:0px;
+	height:600px;
+	width:1024px;
+	border:2px solid black;
+}
+
+div{
+	position: absolute;
+	left: 0px;
+	top:0px;
+	height:600px;
+	width:1024px;
+	background-image:url("indexBackground.jpg");
+}
+
+h1{
+	position:absolute;
+	width:80%;
+	margin-left:10%;
+	top:450px;
+}
+input{
+	position: absolute;
+	border-radius:20px;
+	border: solid black 5px;
+}
+
+.colorToggle{
+	border-color:blue;
+}
+
+.gender{
+	position:absolute;
+}
+
+#boy{
+	top:10px;
+	left:260px;
+	width:130px;
+	height:400px;
+	background: transparent;
+}

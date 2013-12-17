@@ -1,12 +1,23 @@
-function animate(myRectangle, canvas, ctx, x) {
-	setTimeout(function(){	
-		myRectangle.x += x;
-		drawRectangle(myRectangle, ctx);
-		//ctx.clearRect(x,75,50,25);
-		alert("test");
-		x += 2;	
-	},1000);
-	animate(myRectangle, canvas, ctx, x);
+function animate(myRectangle, canvas, ctx, x) { 
+	var running = true;
+	
+	
+	part1();
+	function part1(){
+		if(running == true){
+			myRectangle.x = x;
+			ctx.clearRect(x-5,70,60,35);
+			drawRectangle(myRectangle, ctx);
+			x += 1;
+			
+			var test = setTimeout(part1, 10);
+		
+			if(x == $("#background").width()-myRectangle.width){
+				running = false;
+				clearTimeout(test);
+			}
+		}
+	}
 }	
 
 function drawRectangle(myRectangle, ctx) {
@@ -14,9 +25,7 @@ function drawRectangle(myRectangle, ctx) {
 	ctx.rect(myRectangle.x, myRectangle.y, myRectangle.width, myRectangle.height);
 	ctx.fillStyle = '#8ED6FF';
 	ctx.fill();
-	ctx.lineWidth = myRectangle.borderWidth;
-	ctx.strokeStyle = 'black';
-	ctx.stroke();
+
 }
 
 var myRectangle = {
@@ -24,13 +33,12 @@ x: 0,
 y: 75,
 width: 50,
 height: 25,
-borderWidth: 2.5
 };
 	  
 var x = 0;
 var canvas = document.getElementById('background');
+canvas.height=600;
+canvas.width=724;
 var ctx = canvas.getContext('2d');
-
-//drawRectangle(myRectangle, ctx);
 
 animate(myRectangle, canvas, ctx, x);

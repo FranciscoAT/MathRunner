@@ -1,3 +1,19 @@
+var x = 0;
+var canvas = document.getElementById('background');
+canvas.height=600;
+canvas.width=724;
+var ctx = canvas.getContext('2d');
+
+var runner = new Image();
+runner.src= "male1.png";
+
+var myRunner = {
+x: 0,
+y: 75,
+width: 80,
+height: 140,
+};
+
 function animate(myRunner, canvas, ctx, x) { 
 	var running = true;
 	drawRunner(myRunner, ctx);
@@ -19,23 +35,11 @@ function animate(myRunner, canvas, ctx, x) {
 }	
 
 function drawRunner(myRunner, ctx) {
-	ctx.drawImage(myRunner.image, myRunner.x, myRunner.y, myRunner.width, myRunner.height);
+	ctx.drawImage(runner, myRunner.x, myRunner.y, myRunner.width, myRunner.height);
 }
 
-var myRunner = {
-image:"male1.png",
-x: 0,
-y: 75,
-width: 80,
-height: 140,
-};
-	  
-var x = 0;
-var canvas = document.getElementById('background');
-canvas.height=600;
-canvas.width=724;
-var ctx = canvas.getContext('2d');
-
-//drawRunner(myRunner, ctx);
-ctx.drawImage("male1.png", 10,10,80,140);
-//animate(myRunner, canvas, ctx, x);
+window.onload = function(){	
+	//drawRunner(myRunner, ctx);
+	//ctx.drawImage(runner,10,10);
+	animate(myRunner, canvas, ctx, x);
+}

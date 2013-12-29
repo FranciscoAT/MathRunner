@@ -13,6 +13,7 @@ var questions = 0;
 
 var difficulty = 0;
 
+var countdown;
 
 getQuestion = function(){
 
@@ -70,13 +71,10 @@ getQuestion = function(){
 		break;
 	}
 	
-	prompt("pass");
-	
 	var question = one + " " + operation + " " + two + " = ";
 	
 	document.getElementById("question").innerHTML=question;
 	
-	prompt("pass again");
 	//generating answer with one correct and three incorrect answers
 	var answer;
 	
@@ -95,31 +93,41 @@ getQuestion = function(){
 		break;
 	}
 	
-	prompt(answer);
-	
 	correct = Math.floor(Math.random()*4+1);
 		
 	$("#answer" + correct).attr("value", answer)
 	
+	prompt(correct);
+	
 	for(var i = 1; i < 5; i++)
 	{
+		
 		if(correct != i)
 		{
+			prompt("loop" + i);
+			
 			var otherAnswer;
 			
+			//make sure other multiple choice answers are not the same as the correct answer
+			//*****FIX THIS: make sure there are no two of the same wrong answers; make sure range of answers is sufficient for lower number answers
 			do{
+			if(answer == 0)
+				answer = 1;
 			otherAnswer = Math.floor(Math.random()*(answer*3)+answer/2);
+			prompt(otherAnswer);
 			}while(otherAnswer == answer)
 			
 			$("#answer" + i).attr("value", otherAnswer)
 		}
 	}
 	
+	prompt("hi");
 	startTimer(10);
 }
 
+//****FIX THIS: timer spam; var countdown
 startTimer = function(timer){
-	var countdown = setInterval(function(){document.getElementById("timer").innerHTML=timer;
+	countdown = setInterval(function(){document.getElementById("timer").innerHTML=timer;
 	if(timer > 0) timer -= 1; else{clearInterval(countdown);wrongAns("timeout")}}, 1000);
 }
 

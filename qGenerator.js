@@ -15,6 +15,10 @@ var difficulty = 0; //question difficulty
 
 var countdown; //timer variable
 
+getEnergy = function(){
+return energy;
+}
+
 getQuestion = function(){
 
 	clearInterval(countdown); //used to reset timer when new question is generated

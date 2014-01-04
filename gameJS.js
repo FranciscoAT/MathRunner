@@ -1,4 +1,3 @@
-var x = 0;
 var canvas = document.getElementById('background');
 canvas.height=600;
 canvas.width=724;
@@ -12,7 +11,14 @@ obstacle[0] = new Image();
 obstacle[1] = new Image();
 obstacle[2] = new Image();
 
-obstacle[1].src = "red.png";
+obstacle[0].src = "red.png";
+obstacle[1].src = "blue.png";
+obstacle[2].src = "green.png";
+
+var obstacleX = new Array();
+obstacleX[0] = 0;
+obstacleX[1] = 0;
+obstacleX[2] = 0;
 
 
 var myRunner = {
@@ -28,29 +34,12 @@ width:80,
 height:70,
 };
 
-function animate(myRunner, canvas, ctx, x) {
+function animate() {
+	var x = 0;
 	var running = true;
-	drawRunner(myRunner, ctx);
-	//part1();
+	drawRunner();
 	drawObstacles();
-	
-	function drawObstacles(){
-		for(var i = 0; i <3; i++){
-			var c = rObstacle();
-			if (c==0){
-				obstacle[i].src = "red.png";
-			}
-			else if (c==1){
-				obstacle[i].src = "blue.png";
-			}
-			else{
-				obstacle[i].src = "green.png";
-			}
-				
-			drawObstacle(obstacle[i], (200*(i+1)));
-		}	
-	
-	}
+	part1();
 	function part1(){
 		if(running == true){
 			myRunner.x = x;
@@ -59,21 +48,44 @@ function animate(myRunner, canvas, ctx, x) {
 			drawRunner(myRunner, ctx);
 			var test = setTimeout(part1, 10);
 		
-			if(x == obstacle[0]-obstacleD.width || x == 400-obstacleD.width || x == 600-obstacleD.width){
+			if(x+myRunner.width == obstacleX[0] || x+myRunner.width == obstacleX[1] || x+myRunner.width == obstacleX[2]){
 				running = false;
 				clearTimeout(test);
+				part2();
 			}
 		}
 	}
+	
+	function part2(){
+		getQuestion();
+	}
+	
 }	
 
 
-function drawRunner(myRunner, ctx) {
+function drawRunner() {
 	ctx.drawImage(runner, myRunner.x, myRunner.y, myRunner.width, myRunner.height);
 }
 
 function drawObstacle(c, x){
-	ctx.drawImage(c, x, obstacleD.y, obstacleD.width, obstacleD.height);
+	var i = obstacle[c];
+	ctx.drawImage(i, x, obstacleD.y, obstacleD.width, obstacleD.height);
+	obstacleX[c] = x;
+}
+
+function drawObstacles(){
+	var a = 3;
+	var b = 3;
+	for(var i = 0; i <3; i++){
+		var c = rObstacle();
+		while(c == a || c== b)
+			c = rObstacle();
+		drawObstacle(c, (200*(i+1)));
+		if (a == 3)
+			a = c;
+		else
+			b = c;
+	}
 }
 
 function rObstacle(){
@@ -81,6 +93,5 @@ function rObstacle(){
 }
 
 window.onload = function(){	
-	animate(myRunner, canvas, ctx, x);
-	drawObstacle(obstacle[1], 200);
+	animate();
 }

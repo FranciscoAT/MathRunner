@@ -20,7 +20,10 @@ return energy;
 }
 
 getQuestion = function(){
-
+	
+	//****check to view all variables in the game
+	document.getElementById("variables").innerHTML="points:"+points+" coins:"+coins+" energy:"+energy + " num questions:"+questions+" difficulty:"+difficulty;
+	
 	clearInterval(countdown); //used to reset timer when new question is generated
 
 	//****check
@@ -147,6 +150,7 @@ isCorrect = function(button){
 		wrongAns();
 	
 	questions++;
+	clearInterval(countdown);
 	
 	if(questions == 10)
 	{
@@ -155,7 +159,9 @@ isCorrect = function(button){
 		questions = 0;
 	}
 	
-	getQuestion();
+	
+	//***check at the end of picking button
+	document.getElementById("variables").innerHTML="points:"+points+" coins:"+coins+" energy:"+energy + " num questions:"+questions+" difficulty:"+difficulty;
 }
 
 rightAns = function(){

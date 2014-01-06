@@ -42,10 +42,9 @@ function animate() {
 	drawObstacles();
 	part1();
 	function part1(){
-		if(running == true){
-			myRunner.x = x;
+		if(running){
 			ctx.clearRect(x,myRunner.y,myRunner.width,myRunner.height);
-			x += 1;
+			myRunner.x++;
 			drawRunner();
 			var test = setTimeout(part1, 10);
 		
@@ -64,22 +63,32 @@ function animate() {
 }
 
 function part3W(){
-	alert("INCORRECT");
-	for (var i = 0; i<5; i++){
-		ctx.clearRect(x,myRunner.y,myRunner.width,myRunner.height);
-		//var sleep = setTimeout(sleep2, 100);
-		//function sleep2(){
-		//	clearTimeout(sleep);
-		//}
-		//drawRunner();
+	var flash = true;
+	var t = 0;
+	part3A();
+	function part3A(){
+		if(flash){
+			drawRunner();
+			ctx.clearRect(x,myRunner.y,myRunner.width,myRunner.height);
+			var flashTO = setTimeout(part3A, 500);
+			t++;
+			if(t == 5){
+				flash = false;
+				cleartimeout(flashTO);
+			}
+		}
 	}
-	ctx.clearRect((200*obNum), obstacleD.y, obstacleD.width, obstacleD.height);
-	obNum++;
-	//part1();
+	
+	part3B();
+	function part3B(){
+		drawRunner();
+		ctx.clearRect((200*obNum), obstacleD.y, obstacleD.width, obstacleD.height);
+		obNum++;
+		//part1();
+	}
 }
 
 function part3R(){
-	alert("CORRECT");
 	answered = 0;
 	part1();
 }
@@ -114,7 +123,7 @@ function rObstacle(){
 }
 
 window.onload = function(){	
-	animate();
-	//drawRunner();
-	//part3W();
+	//animate();
+	drawRunner();
+	part3W();
 }

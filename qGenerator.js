@@ -144,10 +144,15 @@ startTimer = function(timer){
 
 isCorrect = function(button){
 	
-	if(button == correct)
+	if(button == correct){
 		rightAns();
-	else
+		part3R();
+		
+	}
+	else{
 		wrongAns();
+		part3W();
+	}
 	
 	questions++;
 	clearInterval(countdown);

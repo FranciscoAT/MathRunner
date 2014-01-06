@@ -37,6 +37,7 @@ height:70,
 function animate() {
 	var x = 0;
 	var running = true;
+	var obNum = 1;
 	drawRunner();
 	drawObstacles();
 	part1();
@@ -45,7 +46,7 @@ function animate() {
 			myRunner.x = x;
 			ctx.clearRect(x,myRunner.y,myRunner.width,myRunner.height);
 			x += 1;
-			drawRunner(myRunner, ctx);
+			drawRunner();
 			var test = setTimeout(part1, 10);
 		
 			if(x+myRunner.width == obstacleX[0] || x+myRunner.width == obstacleX[1] || x+myRunner.width == obstacleX[2]){
@@ -57,11 +58,31 @@ function animate() {
 	}
 	
 	function part2(){
+		var eng = localStorage.energy;
 		getQuestion();
 	}
-	
-}	
+}
 
+function part3W(){
+	alert("INCORRECT");
+	for (var i = 0; i<5; i++){
+		ctx.clearRect(x,myRunner.y,myRunner.width,myRunner.height);
+		//var sleep = setTimeout(sleep2, 100);
+		//function sleep2(){
+		//	clearTimeout(sleep);
+		//}
+		//drawRunner();
+	}
+	ctx.clearRect((200*obNum), obstacleD.y, obstacleD.width, obstacleD.height);
+	obNum++;
+	//part1();
+}
+
+function part3R(){
+	alert("CORRECT");
+	answered = 0;
+	part1();
+}
 
 function drawRunner() {
 	ctx.drawImage(runner, myRunner.x, myRunner.y, myRunner.width, myRunner.height);
@@ -93,5 +114,7 @@ function rObstacle(){
 }
 
 window.onload = function(){	
-	animate();
+	//animate();
+	drawRunner();
+	part3W();
 }

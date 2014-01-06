@@ -114,7 +114,7 @@ function rObstacle(){
 }
 
 window.onload = function(){	
-	//animate();
-	drawRunner();
-	part3W();
+	animate();
+	//drawRunner();
+	//part3W();
 }

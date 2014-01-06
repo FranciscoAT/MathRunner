@@ -34,10 +34,10 @@ width:80,
 height:70,
 };
 
+var obNum = 1;
+
 function animate() {
-	var x = 0;
 	var running = true;
-	var obNum = 1;
 	drawRunner();
 	drawObstacles();
 	part1();
@@ -63,28 +63,34 @@ function animate() {
 }
 
 function part3W(){
-	//alert("INCORRECT");
 	var flash = true;
+	var f = false;
 	var t = 0;
 	part3A();
 	function part3A(){
 		if(flash){
-			drawRunner();
-			ctx.clearRect(myRunner.x,myRunner.y,myRunner.width,myRunner.height);
-			var flashTO = setTimeout(part3A, 500);
+			if(f){
+				drawRunner();
+				f = false;
+			}
+			else{
+				ctx.clearRect(myRunner.x,myRunner.y,myRunner.width,myRunner.height);
+				f = true;
+			}
+			var flashTO = setTimeout(part3A, 375);
 			t++;
-			if(t == 5){
+			if(t == 8){
 				flash = false;
-				cleartimeout(flashTO);
+				clearTimeout(flashTO);
 				part3B();
 			}
 		}
 	}
 	function part3B(){
-		drawRunner();
 		ctx.clearRect((200*obNum), obstacleD.y, obstacleD.width, obstacleD.height);
 		obNum++;
-		//part1();
+		//myRunner.x++;
+		animate();
 	}
 }
 

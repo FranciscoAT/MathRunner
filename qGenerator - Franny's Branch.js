@@ -180,7 +180,7 @@ isCorrect = function(button){
 	document.getElementById("answer" +correct).style.backgroundColor="green";	
 	setTimeout(function(){document.getElementById("confirm").style.visibility="hidden";}, 200);
 	setTimeout(function(){document.getElementById("confirm").style.visibility="visible";}, 300);
-	setTimeout(function(){clearPanel()}, 1500);
+	//setTimeout(function(){clearPanel()}, 1500);
 	
 	questions++;
 	clearInterval(countdown);
@@ -220,7 +220,7 @@ wrongAns = function(reason){
 		
 		element.style.webkitAnimationName = "timeout"; //triggers animation
 		
-		setTimeout(function(){clearPanel()}, 1500);
+		//setTimeout(function(){clearPanel()}, 1500);
 	}
 	else
 	{
@@ -243,6 +243,6 @@ gameOver = function(){
 }
 
 clearPanel = function(){
-//	document.getElementById("answerPanel").style.visibility="hidden";
-//	document.getElementById("confirm").style.visibility="hidden";
+	document.getElementById("answerPanel").style.visibility="hidden";
+	document.getElementById("confirm").style.visibility="hidden";
 }

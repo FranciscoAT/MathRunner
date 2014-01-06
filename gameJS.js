@@ -63,7 +63,7 @@ function animate() {
 }
 
 function part3W(){
-	alert("INCORRECT");
+	//alert("INCORRECT");
 	var flash = true;
 	var t = 0;
 	part3A();
@@ -89,7 +89,7 @@ function part3W(){
 }
 
 function part3R(){
-	alert("CORRECT");
+	//alert("CORRECT");
 	answered = 0;
 	part1();
 }

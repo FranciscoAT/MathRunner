@@ -8,8 +8,8 @@ body{
 }
 
 #background{
-	width:724px;
-	height:600px;
+	width:100%;
+	height:100%;
 	position:absolute;
 	left:0px;
 	top:0px;
@@ -18,10 +18,146 @@ body{
 }
 
 #answerPanel{
-	width:300px;
-	height:600px;
+	width:100%;
+	height:38%;
 	position:absolute;
-	left:724px;
-	top:0px;
+	left:0px;
+	top:13%;
+	
+	visibility: hidden;
+	
+	border: 1px solid #000000;
+	background-color: #82C4E6;
+}
+
+#question{
+	position:relative;
+	top:-30px;
+	height: 12%;
+	padding-bottom:70px;
+	text-align: center;
+	color: blue;
+	letter-spacing: 10px;
+	font-family: "Calibri", "Tahoma", sans-serif;
+	font-size: 5em;
+	font-weight: bold;
+}
+span{color: black;}
+#q{color: orange;}
+
+#confirm{	
+	position: absolute;
+	top:-15px;
+	display:block;
+	height:300px;
+	width: 100%;
+	text-align:center;
+	
+	background-image:url('checkmark.png');
+	background-repeat: no-repeat;
+	background-position: center center;
+	z-index: 1;
+	-webkit-filter: drop-shadow(3px 3px 5px grey);
+	opacity:0.8;
+
+}
+
+#timer{
+	height:50px;
+	width: 80px;
+	text-align:center;
+	color: white;
+	font-family: "Arial", sans-serif;
+	font-size: 30px;
+	font-weight: bold;
+	letter-spacing: 3px;
+	padding-top: 40px;
+	position: absolute;
+	top: 20px;
+	left: 900px;
+	
+	background-image:url('stopwatch.png');
+	background-size: contain;
+	background-repeat:no-repeat;
+	background-position:center center;
+	
+	-webkit-animation-duration: 2s;
+	-webkit-animation-timing-function: linear;
+	
 	border: 1px solid #000000;
 }
+
+@-webkit-keyframes timeout{
+	0%{color:red}
+	11%{
+	top:-100px;
+	left:0px;
+	height:200px; 
+	width:100%;
+	z-index: 1;
+	-webkit-filter: drop-shadow(3px 3px 5px grey); 
+	color: red;
+	font-size: 120px;
+	padding-top: 160px;
+	background-image:url('stopwatchRed.png');
+	opacity:1;
+	}
+	
+	13%{opacity:0}
+	
+	16%{opacity:1}
+	
+	19%{opacity:0}
+	
+	22%{opacity:1}
+	
+	100%{
+	top:-100px;
+	left:362px;
+	height:300px; 
+	width:300px;
+	z-index: 1;
+	-webkit-filter: drop-shadow(3px 3px 5px grey); 
+	color: red;
+	font-size: 120px;
+	padding-top: 160px;
+	background-image:url('stopwatchRed.png');
+	opacity:1;
+	}
+}
+
+
+.answerButtons{
+	text-align: center;
+	position: relative;
+}
+
+.multiChoice{
+	position: relative;
+	width: 100px;
+	height: 80px;
+	margin: 15px 50px;
+	
+	border: 5px outset yellow;
+	border-radius: 10px;
+	box-shadow: 3px 3px 5px grey;
+	background-color: white;
+	
+	color: blue;
+	font-family: "Calibri", "Tahoma", sans-serif;
+	font-weight: bold;
+	font-size: 35px;
+	letter-spacing: 6px;
+}
+
+.multiChoice:active{
+	background-color:orange;
+
+	border-color: orange;
+	box-shadow: none;
+	position: relative;
+	top: 3px;
+	left: 3px;
+}
+
+

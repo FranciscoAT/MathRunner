@@ -1,6 +1,6 @@
 var canvas = document.getElementById('background');
 canvas.height=600;
-canvas.width=724;
+canvas.width=1024;
 var ctx = canvas.getContext('2d');
 
 var runner = new Image();

@@ -20,21 +20,12 @@ else if(selected == "girl"){
 }	
 localStorage.gender = g;
 selected = g;
-
-document.getElementById("demo").innerHTML=localStorage.gender;
 }
 
 setName = function(){
 name = document.getElementById("name").value;
 localStorage.name = document.getElementById("name").value;
 goToMain();
-}
-
-getPlayer = function(){
-$('#demo').append(localStorage.gender)
-//document.getElementById("demo").innerHTML=localStorage.gender + "y";
-
-$('#demo').append(localStorage.name)
 }
 
 goToMain = function () {

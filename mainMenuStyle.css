@@ -86,11 +86,6 @@ h1{
 	background: transparent;
 }
 
-#startGame2{
-	top:150px;
-	border: solid black 5px;
-}
-
 input{
 position: absolute;
 border-radius:20px;

@@ -32,34 +32,39 @@ var obstacleD = {
 y:470,
 width:80,
 height:70,
+x: 275,
 };
 
 var obNum = 1;
 
 function animate() {
 	var running = true;
-	drawRunner();
-	drawObstacles();
 	part1();
 	function part1(){
 		if(running){
-			ctx.clearRect(myRunner.x,myRunner.y,myRunner.width,myRunner.height);
+			clearRunner();
 			myRunner.x++;
 			drawRunner();
-			var test = setTimeout(part1, 10);
+			var run = setTimeout(part1, 8);
 		
 			if(myRunner.x+myRunner.width == obstacleX[0] || myRunner.x+myRunner.width == obstacleX[1] || myRunner.x+myRunner.width == obstacleX[2]){
 				running = false;
-				clearTimeout(test);
+				clearTimeout(run);
 				part2();
+			}
+			
+			if(myRunner.x-1024 == myRunner.width){
+				running = false;
+				clearTimeout(run);
+				reset();
 			}
 		}
 	}
-	
-	function part2(){
-		var eng = localStorage.energy;
-		getQuestion();
-	}
+}
+
+function part2(){
+	var eng = localStorage.energy;
+	getQuestion();
 }
 
 function part3W(){
@@ -74,12 +79,12 @@ function part3W(){
 				f = false;
 			}
 			else{
-				ctx.clearRect(myRunner.x,myRunner.y,myRunner.width,myRunner.height);
+				clearRunner();
 				f = true;
 			}
-			var flashTO = setTimeout(part3A, 375);
+			var flashTO = setTimeout(part3A, 350);
 			t++;
-			if(t == 8){
+			if(t == 10){
 				flash = false;
 				clearTimeout(flashTO);
 				part3B();
@@ -87,21 +92,64 @@ function part3W(){
 		}
 	}
 	function part3B(){
-		ctx.clearRect((200*obNum), obstacleD.y, obstacleD.width, obstacleD.height);
+		clearPanel();
+		clearObstacle(obNum);
 		obNum++;
-		//myRunner.x++;
 		animate();
 	}
 }
 
 function part3R(){
-	//alert("CORRECT");
-	answered = 0;
-	part1();
+	var jump = true;
+	var down = false;
+	clearRunner();
+	myRunner.y --;
+	drawRunner();
+	part3A();
+	function part3A(){
+		if(jump){
+			clearRunner();
+			if(down == false)
+				myRunner.y--
+			else
+				myRunner.y++
+
+			drawRunner();
+			var run = setTimeout(part3A, 10);
+			
+			if(myRunner.y == 340)
+				down = true;
+			
+			if(myRunner.y == 400 && down){
+				jump = false;
+				part3B();
+			}
+		}
+	}
+	
+	function part3B(){
+		clearPanel();
+		clearObstacle(obNum);
+		obNum++;
+		animate();
+	}
+}
+
+function reset(){
+	clearRunner();
+	myRunner.x = 0;
+	drawRunner();
+	drawObstacles();
+	obNum = 1;
+	animate();
 }
 
 function drawRunner() {
 	ctx.drawImage(runner, myRunner.x, myRunner.y, myRunner.width, myRunner.height);
+}
+
+function clearRunner(){
+	ctx.clearRect(myRunner.x,myRunner.y,myRunner.width,myRunner.height);
 }
 
 function drawObstacle(c, x){
@@ -117,7 +165,7 @@ function drawObstacles(){
 		var c = rObstacle();
 		while(c == a || c== b)
 			c = rObstacle();
-		drawObstacle(c, (200*(i+1)));
+		drawObstacle(c, (obstacleD.x*(i+1)));
 		if (a == 3)
 			a = c;
 		else
@@ -129,8 +177,12 @@ function rObstacle(){
 	return Math.floor(Math.random() * 3);
 }
 
-window.onload = function(){	
+function clearObstacle(n){
+	ctx.clearRect((obstacleD.x*n), obstacleD.y, obstacleD.width, obstacleD.height);
+}
+
+window.onload = function(){
+	drawRunner();
+	drawObstacles();
 	animate();
-	//drawRunner();
-	//part3W();
 }

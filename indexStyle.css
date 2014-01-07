@@ -23,7 +23,7 @@ body{
 	top:0px;
 	height:600px;
 	width:1024px;
-	background-image:url("indexBackground.jpg");
+	background-image:url("images/indexBackground.png");
 	z-index:1;
 }
 

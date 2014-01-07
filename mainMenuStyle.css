@@ -8,7 +8,7 @@ body{
 }
 
 div{
-	background-image:url("mainMenu.jpg");
+	background-image:url("images/menuBackground.png");
 	position:absolute;
 	left:0px;
 	top:0px;
@@ -83,6 +83,14 @@ h1{
 	top:390px;
 	height:125px;
 	width:210px;
+	background: transparent;
+}
+
+#indexButton{
+	left:0px;
+	top:0px;
+	height:110px;
+	width:165px;
 	background: transparent;
 }
 

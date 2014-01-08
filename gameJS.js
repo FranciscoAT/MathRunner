@@ -4,7 +4,7 @@ canvas.width=1024;
 var ctx = canvas.getContext('2d');
 
 var runner = new Image();
-runner.src= "images/male1.png";
+runner.src= localStorage.avatar;
 
 var obstacle = new Array();
 obstacle[0] = new Image();

@@ -4,16 +4,16 @@ canvas.width=1024;
 var ctx = canvas.getContext('2d');
 
 var runner = new Image();
-runner.src= "male1.png";
+runner.src= "images/male1.png";
 
 var obstacle = new Array();
 obstacle[0] = new Image();
 obstacle[1] = new Image();
 obstacle[2] = new Image();
 
-obstacle[0].src = "red.png";
-obstacle[1].src = "blue.png";
-obstacle[2].src = "green.png";
+obstacle[0].src = "images/rocks.png";
+obstacle[1].src = "images/log.png";
+obstacle[2].src = "images/pylon.png";
 
 var obstacleX = new Array();
 obstacleX[0] = 0;

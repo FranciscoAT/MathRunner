@@ -204,7 +204,6 @@ animateConfirm = function(){
 	document.getElementById("answer" +correct).style.color="green";
 	setTimeout(function(){document.getElementById("confirm").style.visibility="hidden";}, 200);
 	setTimeout(function(){document.getElementById("confirm").style.visibility="visible";}, 300);
-	setTimeout(function(){clearPanel()}, 1500);
 }
 
 rightAns = function(){
@@ -215,7 +214,7 @@ rightAns = function(){
 	
 	$("#confirm").attr("style", "background-image: url('checkmark.png')");
 	
-	//******part3R(); //animation for runner
+	part3R(); //animation for runner
 }
 
 wrongAns = function(reason){
@@ -234,7 +233,6 @@ wrongAns = function(reason){
 		
 		element.style.webkitAnimationName = "timeout"; //triggers animation
 		
-		setTimeout(function(){clearPanel()}, 1500);
 	}
 	else
 	{
@@ -254,8 +252,8 @@ gameOver = function(){
 }
 
 clearPanel = function(){
-//	document.getElementById("answerPanel").style.visibility="hidden";
-//	document.getElementById("confirm").style.visibility="hidden";
+	document.getElementById("answerPanel").style.visibility="hidden";
+	document.getElementById("confirm").style.visibility="hidden";
 }
 
 setInfoBar = function(){

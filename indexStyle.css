@@ -13,7 +13,7 @@ body{
 	top:0px;
 	height:600px;
 	width:1024px;
-	background-image:url("welcomeScreen.jpg");
+	background-image:url("images/welcomeScreen.jpg");
 	z-index:2;
 }
 

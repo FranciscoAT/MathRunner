@@ -99,3 +99,12 @@ position: absolute;
 border-radius:20px;
 border: solid transparent 5px;
 }
+
+#selectedChar{
+	position: absolute;
+	left:100px;
+	top:100px;
+	width: 80px;
+	height: 140px;
+	border: solid black 5px;
+}

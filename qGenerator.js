@@ -24,19 +24,22 @@ getQuestion = function(){
 	
 	//GUI becomes visible and defaults to original
 	document.getElementById("answerPanel").style.visibility="visible";
-	$(".multiChoice").attr("style", "background-color: white");
+	$(".multiChoice").attr("style", "color: blue");
 	document.getElementById("confirm").style.visibility="hidden";
 	
-	//****check to view all variables in the game
-	document.getElementById("variables").innerHTML="points:"+points+" coins:"+coins+" energy:"+energy + " num questions:"+questions+" difficulty:"+difficulty;
+	//sets infoBar with initial variables
+	questions++;
+	setInfoBar();
+	
+	powerUp("jetpack");
 	
 	clearInterval(countdown); //used to reset timer when new question is generated
-	timer = 5;
+	timer = 3;
 	
 	//****check
 	document.getElementById("demo").innerHTML=operator;
 
-	//little check
+	//*****little check
 	var yay = false;
 	for(i=0;i<operator.length;i++)
 		if(operator[i])
@@ -104,7 +107,7 @@ getQuestion = function(){
 		break;
 	}
 	
-	var question = one + " <span>" + operation + "</span> " + two + " <span>=</span> <span id=q>?</span>";
+	var question = one + " <span class=q>" + operation + "</span> " + two + " <span class=q>= ?</span>";
 	document.getElementById("question").innerHTML=question;
 	
 	//generating answers with one correct and three incorrect answers
@@ -155,7 +158,7 @@ getQuestion = function(){
 }
 
 startTimer = function(){
-	document.getElementById("timer").style.color="white";
+	document.getElementById("timer").style.color="orange";
 	document.getElementById("timer").innerHTML=timer; //timer appears right away without the initial delay
 	timer --; //timer decreases by one because of initial delay to avoid an extra second
 	countdown = setInterval(function(){
@@ -165,32 +168,43 @@ startTimer = function(){
 			document.getElementById("timer").style.color="red";
 		
 		if(timer > 0) timer -= 1; 
-		else{clearInterval(countdown);wrongAns("timeout")}
+		else{clearInterval(countdown);isCorrect("timeout")}
 		}, 1000); //after a delay, the timer will appear and timer will begin countdown until 0
 }
 
 isCorrect = function(button){
 	
-	if(button == correct)
-		rightAns();
-	else
-		wrongAns(button);
-		
+	if(button > 0 && button < 5)
+	{
+		if(button == correct)
+			rightAns();
+		else
+			wrongAns(button);
+			
+		animateConfirm();
+	}
+	else if(button == "timeout")
+		wrongAns("timeout");
+	
+	clearInterval(countdown);
+	
+	
+	
+	if(questions >= 10 && difficulty < 5)
+	{
+		difficulty++;
+		questions = 0;
+	}
+	
+	setInfoBar();
+}
+
+animateConfirm = function(){
 	document.getElementById("confirm").style.visibility="visible";
-	document.getElementById("answer" +correct).style.backgroundColor="green";	
+	document.getElementById("answer" +correct).style.color="green";
 	setTimeout(function(){document.getElementById("confirm").style.visibility="hidden";}, 200);
 	setTimeout(function(){document.getElementById("confirm").style.visibility="visible";}, 300);
 	setTimeout(function(){clearPanel()}, 1500);
-	
-	questions++;
-	clearInterval(countdown);
-	
-	if(questions % 10 == 0 && difficulty < 5)
-		difficulty++;
-	
-	
-	//***check at the end of picking button
-	document.getElementById("variables").innerHTML="points:"+points+" coins:"+coins+" energy:"+energy + " num questions:"+questions+" difficulty:"+difficulty;
 }
 
 rightAns = function(){
@@ -201,7 +215,7 @@ rightAns = function(){
 	
 	$("#confirm").attr("style", "background-image: url('checkmark.png')");
 	
-	part3R(); //animation for runner
+	//******part3R(); //animation for runner
 }
 
 wrongAns = function(reason){
@@ -210,7 +224,7 @@ wrongAns = function(reason){
 	
 	if(reason == "timeout")
 	{
-		document.getElementById("answer" +correct).style.backgroundColor="green";
+		document.getElementById("answer" +correct).style.color="green";
 		
 		//cancels event triggered after animation to allow animation to be triggered multiple times
 		var element = document.getElementById("timer");
@@ -225,24 +239,78 @@ wrongAns = function(reason){
 	else
 	{
 		$("#confirm").attr("style", "background-image: url('xmark.png')");
-		document.getElementById("answer" +reason).style.backgroundColor="red";
+		document.getElementById("answer" +reason).style.color="red";
 	}
 	
 	if(energy <= 0)
 		gameOver();
+	else
+		part3W(); //animation for runner
 	
-	
-	
-	part3W(); //animation for runner
-	
-	//*****check at end of timeout
-	document.getElementById("variables").innerHTML="points:"+points+" coins:"+coins+" energy:"+energy + " num questions:"+questions+" difficulty:"+difficulty;
 }
 
 gameOver = function(){
+//**********GAMEOVER DO SOMETHING
 }
 
 clearPanel = function(){
 //	document.getElementById("answerPanel").style.visibility="hidden";
 //	document.getElementById("confirm").style.visibility="hidden";
+}
+
+setInfoBar = function(){
+	document.getElementById("points").innerHTML=points;
+	document.getElementById("coins").innerHTML=coins;
+	document.getElementById("energy").innerHTML=energy;
+	document.getElementById("level").innerHTML=difficulty+1;
+	document.getElementById("questions").innerHTML=questions;
+	
+	setEnergyBar();
+}
+
+setEnergyBar = function(){
+	
+	animateEnergyBar();
+	//var element = document.getElementById("energyBar");
+//	element.addEventListener("webkitAnimationEnd", function(){
+//		this.style.webkitAnimationName = '';
+//	}, false);
+	
+	//element.style.webkitAnimationName = "decEnergy";
+	
+	if(energy > 60)
+		$("#energyBar").attr("style", "background-position: -" + ((100-energy)/10)*35 + "px 0px;");
+	else if(energy > 30)
+		$("#energyBar").attr("style", "background-position: -"+ ((60-energy)/10)*35 +"px -35px;");
+	else if(energy > 0)
+		$("#energyBar").attr("style", "background-position: -"+ ((30-energy)/10)*35 +"px -70px;");
+	else
+		$("#energyBar").attr("style", "background-position: -350px 0px;");
+}
+
+animateEnergyBar = function(){
+	var element = document.getElementById("energyBar"),
+		style = window.getComputedStyle(element),
+		x = style.getPropertyValue("left");
+		
+	//possible to use pause and play css animations to make life easier
+}
+
+powerUp = function(type){
+	if(type == "jetpack")
+	{
+		for(var i = 0; i < 3; i++)
+		{
+			setInfoBar();
+			setTimeout(function(){questions++; setInfoBar();}, 500*i);
+		}	
+	}
+	else if(type == "booster")
+	{
+	 
+	}
+	else if(type == "coins")
+	{
+	 
+	}
 }

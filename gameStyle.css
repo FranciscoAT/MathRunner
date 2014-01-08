@@ -1,0 +1,272 @@
+body{
+	width:1024px;
+	height:600px;
+	position:absolute;
+	left:0px;
+	top:0px;
+}
+
+
+
+#background{
+	width:1024px;
+	height:600px;
+	position:absolute;
+	left:0px;
+	top:0px;
+	border: 2px solid #000000;
+	background-image:url("images/gameBackground.png");
+}
+
+#infoBar{
+	width:100%;
+	height: 70px;
+	position:absolute;
+	
+	
+	
+	border: 1px solid yellow;
+}
+
+#backButton{
+	position:absolute;
+	height: 100px;
+	width: 100px;
+	
+	background:transparent;
+	border: none;
+	background-image:url('sunBackButton.png');
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: left top;
+	-webkit-filter: drop-shadow(3px 3px 5px grey); 
+}
+
+#backButton:active{
+	height: 100px;
+	width: 110px;
+	-webkit-filter: drop-shadow(0px 0px 0px grey); 
+}
+
+.info{
+	border: 1px solid yellow;
+	font-family: "Calibri", sans-serif;
+	font-size: 40px;
+	text-shadow: none;
+	color: black;
+}
+
+#lvlBar{
+	position: absolute;
+	top: 10px;
+	left: 120px;
+	
+	font-family: "Kristen ITC", sans-serif;
+	font-size: 20px;
+	
+	border: 1px solid yellow;
+}
+
+.lvl{
+	font-size: 30px;
+}
+
+#pointBar{
+	position: absolute;
+	top: 5px;
+	left: 340px;
+	
+	font-family: "Kristen ITC", "Hobo Std", "Comic Sans MS", sans-serif;
+	font-size: 30px;
+	text-shadow: -2px -2px 0px black, 1px -1px 0px black, -1px 1px 0px black, 2px 2px 0px black;
+	color: #f7e124;
+}
+
+#energyBar{
+	width: 350px;
+	height: 35px;
+	position: absolute;
+	top: 15px;
+	left: 650px;
+	
+	background: white;
+	background-image:url('energybar.png');
+	background-repeat: no-repeat;
+
+	border: 1px solid black;
+	border-radius: 20px;
+	
+	-webkit-animation-duration: 1s;
+	-webkit-animation-timing-function: linear;
+	-webkit-animation-fill-mode: forwards;
+	-webkit-animation-direction: normal;
+}
+
+@-webkit-keyframes decEnergy{
+	100% {
+		background-position: -35px 0px;
+	}
+}
+
+#bolt, #coin{
+	position:absolute;
+	left: -40px;
+	-webkit-filter: drop-shadow(2px 2px 3px grey);
+}
+
+#coin{top: 8px;}
+
+#bolt{top: -5px;}
+
+#coinBar{
+	position:absolute;
+	top: 5px;
+	left: 540px;
+	width: 60px;
+	height: 40px;
+	border: 1px solid yellow;
+>>>>>>> Week 13 Day 2 BIG COMMIT
+}
+
+#answerPanel{
+	width:100%;
+	height:38%;
+	position:absolute;
+	left:0px;
+	top:13%;
+	
+	visibility: hidden;
+	
+	border: 1px solid #000000;
+}
+
+#question{
+	position:relative;
+	height: 12%;
+	padding-bottom:80px;
+	text-align: center;
+	color: white;
+	letter-spacing: 10px;
+	font-family: "Rockwell", sans-serif;
+	font-size: 5em;
+	font-weight: bold;
+	text-shadow: -3px -3px 0px black, 3px -3px 0px black, -3px 3px 0px black, 3px 3px 0px black;
+}
+.q{color: black; text-shadow: none}
+
+#confirm{	
+	position: absolute;
+	top:-15px;
+	display:block;
+	height:300px;
+	width: 100%;
+	text-align:center;
+	
+	background-image:url('checkmark.png');
+	background-repeat: no-repeat;
+	background-position: center center;
+	z-index: 1;
+	-webkit-filter: drop-shadow(3px 3px 5px grey);
+	opacity:0.8;
+
+}
+
+#timer{
+	position: absolute;
+	top: -40px;
+	left: 880px;
+	padding-top: 80px;
+	height:100px;
+	width: 100px;
+	
+	text-align:center;
+	color: orange;
+	font-family: "Kristen ITC", "Hobo Std", "Comic Sans MS", sans-serif;
+	font-size: 50px;
+	font-weight: bold;
+	letter-spacing: 3px;
+	text-shadow: -3px -3px 0px black, 2px -2px 0px black, -2px 2px 0px black, 3px 3px 0px black;
+	
+	background-image:url('stopwatch.png');
+	background-size: contain;
+	background-repeat:no-repeat;
+	background-position:center center;
+	
+	-webkit-animation-duration: 2s;
+	-webkit-animation-timing-function: linear;
+}
+
+@-webkit-keyframes timeout{
+	0%{color:red}
+	11%{
+	top:-50px;
+	left:0px;
+	height:250px; 
+	width:100%;
+	z-index: 1;
+	-webkit-filter: drop-shadow(3px 3px 5px grey); 
+	color: red;
+	font-size: 120px;
+	padding-top: 100px;
+	background-image:url('stopwatchRed.png');
+	opacity:1;
+	}
+	
+	13%{opacity:0}
+	
+	16%{opacity:1}
+	
+	19%{opacity:0}
+	
+	22%{opacity:1}
+	
+	100%{
+	top:-50px;
+	left:0px;
+	height:250px; 
+	width:100%;
+	z-index: 1;
+	-webkit-filter: drop-shadow(3px 3px 5px grey); 
+	color: red;
+	font-size: 120px;
+	padding-top: 100px;
+	background-image:url('stopwatchRed.png');
+	opacity:1;
+	}
+}
+
+
+.answerButtons{
+	text-align: center;
+	position: relative;
+}
+
+.multiChoice{
+	position: relative;
+	width: 180px;
+	height: 90px;
+	margin: 10px 30px;
+	
+	background:transparent;
+	border: none;
+	background-image:url('cloud.png');
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: left center;
+	-webkit-filter: drop-shadow(3px 3px 5px grey); 
+	
+	color: blue;
+	font-family: "Calibri", sans-serif;
+	font-weight: bold;
+	font-size: 40px;
+	letter-spacing: 3px;
+}
+
+.multiChoice:active{
+	-webkit-filter: drop-shadow(0px 0px 0px grey);
+	position: relative;
+	top: 5px;
+	left: 5px;
+}
+
+

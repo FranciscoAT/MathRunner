@@ -32,25 +32,33 @@ function changeChar(c){
 	switch (c) {
 		case "m1": 
 			localStorage.avatar = "images/male1.png";
+			runner.src= localStorage.avatar;
 			break;
 		case "m2": 
 			localStorage.avatar = "images/blue.png";
+			runner.src= localStorage.avatar;
 			break;
 		case "m3": 
 			localStorage.avatar = "images/red.png";
+			runner.src= localStorage.avatar;
 			break;
 		case "f1": 
-			localStorage.avatar = "images/male1.png";
+			localStorage.avatar = "images/female1.png";
+			runner.src= localStorage.avatar;
 			break;
 		case "f2": 
 			localStorage.avatar = "images/green.png";
+			runner.src= localStorage.avatar;
 			break;
 		case "f3": 
 			localStorage.avatar = "images/yellow.png";
+			runner.src= localStorage.avatar;
 			break;
 	}
-	clearRunner();
-	drawRunner();
+	runner.onload = function(){
+		clearRunner();
+		drawRunner();
+	}
 }
 
 window.onload = function(){

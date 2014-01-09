@@ -31,7 +31,8 @@ getQuestion = function(){
 	questions++;
 	setInfoBar();
 	
-	powerUp("jetpack");
+	
+	powerUp("coins");
 	
 	clearInterval(countdown); //used to reset timer when new question is generated
 	timer = 3;
@@ -291,24 +292,27 @@ animateEnergyBar = function(){
 		style = window.getComputedStyle(element),
 		x = style.getPropertyValue("left");
 		
-	//possible to use pause and play css animations to make life easier
+	//possible to use pause and play css animations to  make life easier
 }
 
 powerUp = function(type){
 	if(type == "jetpack")
 	{
-		for(var i = 0; i < 3; i++)
+		for(var i = 1; i < 4; i++)
 		{
-			setInfoBar();
 			setTimeout(function(){questions++; setInfoBar();}, 500*i);
 		}	
 	}
 	else if(type == "booster")
 	{
-	 
+		energy += 30;
+		setInfoBar();
 	}
 	else if(type == "coins")
 	{
-	 
+		for(var i = 1; i < 16; i++)
+		{
+			setTimeout(function(){coins++; setInfoBar();}, 100*i);
+		}	
 	}
 }

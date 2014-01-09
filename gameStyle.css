@@ -125,7 +125,6 @@ body{
 	width: 60px;
 	height: 40px;
 	border: 1px solid yellow;
->>>>>>> Week 13 Day 2 BIG COMMIT
 }
 
 #answerPanel{
@@ -192,13 +191,13 @@ body{
 	background-repeat:no-repeat;
 	background-position:center center;
 	
-	-webkit-animation-duration: 2s;
+	-webkit-animation-duration: 4s;
 	-webkit-animation-timing-function: linear;
 }
 
 @-webkit-keyframes timeout{
 	0%{color:red}
-	11%{
+	8%{
 	top:-50px;
 	left:0px;
 	height:250px; 
@@ -212,13 +211,13 @@ body{
 	opacity:1;
 	}
 	
-	13%{opacity:0}
+	10%{opacity:0}
 	
-	16%{opacity:1}
+	13%{opacity:1}
 	
-	19%{opacity:0}
+	16%{opacity:0}
 	
-	22%{opacity:1}
+	19%{opacity:1}
 	
 	100%{
 	top:-50px;
@@ -253,7 +252,7 @@ body{
 	background-size: contain;
 	background-repeat: no-repeat;
 	background-position: left center;
-	-webkit-filter: drop-shadow(3px 3px 5px grey); 
+	-webkit-filter: drop-shadow(4px 4px 4px grey); 
 	
 	color: blue;
 	font-family: "Calibri", sans-serif;

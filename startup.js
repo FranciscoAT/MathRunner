@@ -1,5 +1,6 @@
 var selected = "null";
 var name = "null";
+alert(name.length);
 
 setGender = function(g){
 	if (selected == "boy"){
@@ -18,24 +19,25 @@ setGender = function(g){
 			$("#girl").toggleClass('colorToggle')
 		}
 	}	
-	localStorage.gender = g;
 	selected = g;
 }
 
 setName = function(){
-name = document.getElementById("name").value;
-localStorage.name = document.getElementById("name").value;
-goToMain();
+	name = document.getElementById("name").value;
+	localStorage.name = document.getElementById("name").value;
+	goToMain();
 }
 
 goToMain = function () {
-	if(selected !== "null" && name !=="null" || name !==""){
+	if(selected != "null" && (name !="null" || name.length < 3)){
 		if(selected == "boy")
 			localStorage.avatar = "images/male1.png";
 		else
 			localStorage.avatar = "images/female1.png";
+			
 		location.href= "mainMenu.html";
 	}
+	
 	else{
 		alert("Name or Gender is not Selected!");
 	}

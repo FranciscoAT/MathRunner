@@ -31,6 +31,7 @@ store = function () {
 		alert("No operations selected!");
 	}
 }
+	
 
 
 

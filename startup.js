@@ -1,6 +1,5 @@
 var selected = "null";
-var name = "null";
-alert(name.length);
+var name = "";
 
 setGender = function(g){
 	if (selected == "boy"){
@@ -24,21 +23,29 @@ setGender = function(g){
 
 setName = function(){
 	name = document.getElementById("name").value;
-	localStorage.name = document.getElementById("name").value;
+	localStorage.setItem("name", name);
 	goToMain();
 }
 
 goToMain = function () {
-	if(selected != "null" && (name !="null" || name.length < 3)){
+	if(selected != "null" && name.length >= 3){
 		if(selected == "boy")
 			localStorage.avatar = "images/male1.png";
 		else
 			localStorage.avatar = "images/female1.png";
 			
+		if(localStorage.getItem("coins") == null)
+			localStorage.setItem("coins", 0);
+		else{
+			var x = localStorage.getItem("coins");
+			x++;
+			localStorage.setItem("coins", x);
+		}
+			
 		location.href= "mainMenu.html";
 	}
 	
 	else{
-		alert("Name or Gender is not Selected!");
+		alert("Name must be longer or Gender is not Selected!");
 	}
 }

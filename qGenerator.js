@@ -24,15 +24,16 @@ getQuestion = function(){
 	
 	//GUI becomes visible and defaults to original
 	document.getElementById("answerPanel").style.visibility="visible";
-	$(".multiChoice").attr("style", "color: blue");
 	document.getElementById("confirm").style.visibility="hidden";
+	$(".multiChoice").attr("disabled", "false");
+	$(".multiChoice").attr("style", "color: blue");
 	
 	//sets infoBar with initial variables
 	questions++;
 	setInfoBar();
 	
 	
-	powerUp("coins");
+	powerUp("jetpack");
 	
 	clearInterval(countdown); //used to reset timer when new question is generated
 	timer = 3;
@@ -175,6 +176,8 @@ startTimer = function(){
 
 isCorrect = function(button){
 	
+	//$(".multiChoice").attr("disabled", "true");
+	
 	if(button > 0 && button < 5)
 	{
 		if(button == correct)
@@ -300,7 +303,9 @@ powerUp = function(type){
 	{
 		for(var i = 1; i < 4; i++)
 		{
-			setTimeout(function(){questions++; setInfoBar();}, 500*i);
+			setTimeout(function(){questions++; 
+				points += difficulty + 1;
+				setInfoBar();}, 500*i);
 		}	
 	}
 	else if(type == "booster")

@@ -16,6 +16,11 @@ body{
 	background-image:url("images/gameBackground.png");
 }
 
+#powerup{
+	position: absolute;
+	
+}
+
 #infoBar{
 	width:100%;
 	height: 70px;
@@ -195,7 +200,7 @@ body{
 
 @-webkit-keyframes timeout{
 	0%{color:red}
-	8%{
+	6%{
 	top:-50px;
 	left:0px;
 	height:250px; 
@@ -209,13 +214,13 @@ body{
 	opacity:1;
 	}
 	
-	10%{opacity:0}
+	8%{opacity:0}
 	
-	13%{opacity:1}
+	11%{opacity:1}
 	
-	16%{opacity:0}
+	14%{opacity:0}
 	
-	19%{opacity:1}
+	17%{opacity:1}
 	
 	100%{
 	top:-50px;
@@ -257,6 +262,7 @@ body{
 	font-weight: bold;
 	font-size: 40px;
 	letter-spacing: 3px;
+	
 }
 
 .multiChoice:active{

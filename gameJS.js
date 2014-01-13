@@ -6,6 +6,9 @@ var ctx = canvas.getContext('2d');
 var runner = new Image();
 runner.src= localStorage.avatar;
 
+var jetpack = new Image();
+jetpack.src = "images/jetpack.png";
+
 var obstacle = new Array();
 obstacle[0] = new Image();
 obstacle[1] = new Image();
@@ -22,18 +25,25 @@ obstacleX[2] = 0;
 
 
 var myRunner = {
-x: 0,
-y: 400,
-width: 80,
-height: 140,
+	x: 0,
+	y: 400,
+	width: 80,
+	height: 140,
 };
 
 var obstacleD = {
-y:470,
-width:80,
-height:70,
-x: 275,
+	y:470,
+	width:80,
+	height:70,
+	x: 275,
 };
+
+var jetpackD = {
+	x:0,
+	y:330,
+	width: 140,
+	height:80,
+}
 
 var obNum = 1;
 
@@ -63,7 +73,6 @@ function animate() {
 }
 
 function part2(){
-	var eng = localStorage.energy;
 	getQuestion();
 }
 
@@ -135,6 +144,82 @@ function part3R(){
 	}
 }
 
+function animateJetpack(){
+	var jump = true;
+	part1();
+	function part1(){
+		if(jump){
+			clearRunner();
+			myRunner.y--
+			drawRunner();
+			
+			var jumping = setTimeout(part1, 6);
+			
+			if(myRunner.y == 315){
+				jump = false;
+				clearTimeout(jumping);
+				part2();
+			}
+		}	
+	}
+	
+	function part2(){
+		clearRunner();
+		drawJetpack();
+		var q = 0;
+		var f = true;
+		part2A();
+		function part2A(){
+			if(f){
+				clearJetpack();
+				myRunner.x ++;
+				drawJetpack();	
+				var flying = setTimeout(part2A, 8);
+				
+				if(myRunner.x == obstacleX[0]+obstacleD.width || myRunner.x == obstacleX[1]+obstacleD.width || myRunner.x == obstacleX[2]+obstacleD.width){
+					q++;
+					clearObstacle(obNum);
+					obNum++;
+					if(q == 3){
+						clearTimeout(flying);
+						f = false;
+						part3();
+					}
+				}
+				
+				if(myRunner.x-1024 == myRunner.height){
+					clearJetpack();
+					myRunner.x = 0;
+					drawJetpack();
+					drawObstacles();
+					obNum = 1;
+				}
+			}
+		}		
+	}
+	
+	function part3(){
+		clearJetpack();
+		drawRunner();
+		var down = true;
+		part3A();
+		function part3A(){
+			if(down){
+				clearRunner();
+				myRunner.y++;
+				drawRunner();
+				var falling = setTimeout(part3A, 10);
+				
+				if(myRunner.y == 400){
+					jump = false;
+					clearTimeout(falling);
+					animate();
+				}
+			}	
+		}
+	}
+}
+
 function reset(){
 	clearRunner();
 	myRunner.x = 0;
@@ -150,6 +235,14 @@ function drawRunner() {
 
 function clearRunner(){
 	ctx.clearRect(myRunner.x,myRunner.y,myRunner.width,myRunner.height);
+}
+
+function drawJetpack() {
+	ctx.drawImage(jetpack, myRunner.x, myRunner.y, myRunner.height, myRunner.width);
+}
+
+function clearJetpack(){
+	ctx.clearRect(myRunner.x,myRunner.y,myRunner.height,myRunner.width);
 }
 
 function drawObstacle(c, x){

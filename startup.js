@@ -35,17 +35,11 @@ goToMain = function () {
 			localStorage.avatar = "images/female1.png";
 			
 		if(localStorage.getItem("coins") == null)
-			localStorage.setItem("coins", 0);
-		else{
-			var x = localStorage.getItem("coins");
-			x++;
-			localStorage.setItem("coins", x);
-		}
-			
+			localStorage.setItem("coins", 0);		
 		location.href= "mainMenu.html";
 	}
 	
 	else{
-		alert("Name must be longer or Gender is not Selected!");
+		alert("Vous devez sélectionner votre nom ou votre personnage!");
 	}
 }

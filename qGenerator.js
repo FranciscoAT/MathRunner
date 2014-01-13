@@ -25,15 +25,13 @@ getQuestion = function(){
 	//GUI becomes visible and defaults to original
 	document.getElementById("answerPanel").style.visibility="visible";
 	document.getElementById("confirm").style.visibility="hidden";
-	$(".multiChoice").attr("disabled", "false");
+	document.getElementById("powerup").style.visibility="hidden";
+	$(".multiChoice").attr("disabled", false);
 	$(".multiChoice").attr("style", "color: blue");
 	
 	//sets infoBar with initial variables
 	questions++;
 	setInfoBar();
-	
-	
-	powerUp("jetpack");
 	
 	clearInterval(countdown); //used to reset timer when new question is generated
 	timer = 3;
@@ -176,7 +174,7 @@ startTimer = function(){
 
 isCorrect = function(button){
 	
-	//$(".multiChoice").attr("disabled", "true");
+	$(".multiChoice").attr("disabled", true);
 	
 	if(button > 0 && button < 5)
 	{
@@ -258,6 +256,15 @@ gameOver = function(){
 clearPanel = function(){
 	document.getElementById("answerPanel").style.visibility="hidden";
 	document.getElementById("confirm").style.visibility="hidden";
+	
+	var chance = 3;//Math.floor(Math.random()*30 + 1)
+	
+	if(chance == 1)
+		powerUp("coins");
+	else if (chance == 2)
+		powerUp("booster");
+	else if (chance == 3)
+		powerUp("jetpack");
 }
 
 setInfoBar = function(){
@@ -299,22 +306,37 @@ animateEnergyBar = function(){
 }
 
 powerUp = function(type){
+
+	var x = Math.floor(Math.random()*800 + 50);
+	var y = Math.floor(Math.random()*350 + 100);
+	
+	document.getElementById("powerup").style.top=y + "px";
+	document.getElementById("powerup").style.left=x + "px";
+	document.getElementById("powerup").style.visibility="visible";
+	
 	if(type == "jetpack")
 	{
+		document.getElementById("powerup").style.backgroundImage="url('images/jetPack.png')";
+		
+		//*********TIME THIS TO BE THE SAME AS WHEN JETPACK FLIES OVER OBJECTS
 		for(var i = 1; i < 4; i++)
 		{
 			setTimeout(function(){questions++; 
-				points += difficulty + 1;
-				setInfoBar();}, 500*i);
+			points += difficulty + 1;
+			setInfoBar();}, 500*i);
 		}	
 	}
 	else if(type == "booster")
 	{
+		document.getElementById("powerup").style.backgroundImage="url('images/energy.png')";
+	
 		energy += 30;
 		setInfoBar();
 	}
 	else if(type == "coins")
 	{
+		document.getElementById("powerup").style.backgroundImage="url('images/coins.png')";
+	
 		for(var i = 1; i < 16; i++)
 		{
 			setTimeout(function(){coins++; setInfoBar();}, 100*i);

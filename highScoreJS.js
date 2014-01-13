@@ -1,3 +1,28 @@
+var operatorGame = JSON.parse(localStorage["operator"]);
+
+var names = new Array();		
+var operator = new Array();	
+var score = new Array();
+
+function initArrays(){		
+	for(var i = 0; i++; j<4){
+		for(var j = 0; j++; j<10){
+			names[i][j] = "NO NAME";	
+			operator[i][j] = "NONE";
+			score[i][j] = 0;
+		}
+	}
+	
+	localStorage["operatorHS"] = JSON.stringify(operator);
+	localStorage["namesHS"] = JSON.stringify(names);
+	localStorage["scoreHS"] = JSON.stringify(score);
+}
+
+
+
+
+
+
 showHide = function(c){
 	switch(c){
 		case 0:
@@ -26,3 +51,9 @@ showHide = function(c){
 			break;
 	}
 }
+
+
+if(JSON.parse(localStorage["names"]) == null)
+	initArrays();
+else
+	fillList();

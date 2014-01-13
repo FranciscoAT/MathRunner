@@ -2,23 +2,31 @@
 	<head>
 		<meta charset="utf-8">
 		<link rel="stylesheet" href="storeStyle.css" type="text/css"/>
+		<script src = "jQuery.js"></script>
 	</head>
 	<body>
 		STORE SCREEN
 		<a href="mainMenu.html"><input type="button" value="RETURN"></a>
-		<input type = "button" value = "Male 1" id = "buttonMale1" onclick= checkFunds("m1")>
-		<input type = "button" value = "Male 2" id = "buttonMale2" onclick= checkFunds("m2")>
-		<input type = "button" value = "Male 3" id = "buttonMale3" onclick= checkFunds("m3")>
-		<input type = "button" value = "Female 1" id= "buttonFemale1" onclick= checkFunds("f1")>
-		<input type = "button" value = "Female 2" id= "buttonFemale2" onclick= checkFunds("f2")>
-		<input type = "button" value = "Female 3" id= "buttonFemale3" onclick= checkFunds("f3")>
+		<input type = "button" value = "Male 1" id = "buttonMale1" onclick= checkFunds("m1",0)>
+		<input type = "button" value = "Male 2" id = "buttonMale2" onclick= checkFunds("m2",500)>
+		<input type = "button" value = "Male 3" id = "buttonMale3" onclick= checkFunds("m3",1000)>
+		<input type = "button" value = "Female 1" id= "buttonFemale1" onclick= checkFunds("f1",0)>
+		<input type = "button" value = "Female 2" id= "buttonFemale2" onclick= checkFunds("f2",500)>
+		<input type = "button" value = "Female 3" id= "buttonFemale3" onclick= checkFunds("f3",1000)>
+		<input type = "button" value = "RESET" id= "resetStore" onclick = resetStore()>
+		<p id = "moneyP">
+			<script>
+				var m = localStorage.getItem('coins');
+				$('#moneyP').text(m)
+			</script>
+		</p>
 		<br> Reference <br>
-		Male 1 = images/male1.png <br>
-		Male 2 = images/blue.png <br>
-		Male 3 = images/red.png <br>
-		Female 1 = images/female1.png <br>
-		Female 2 = images/green.png <br>
-		Female 3 = images/yellow.png <br>
+		Male 1 = images/male1.png >> Free <br>
+		Male 2 = images/blue.png  >> $500<br>
+		Male 3 = images/red.png >> $1000<br>
+		Female 1 = images/female1.png  >>Free<br>
+		Female 2 = images/green.png >> $500<br>
+		Female 3 = images/yellow.png >> $1000<br>
 		
 		<canvas id = "temp"></canvas>
 		

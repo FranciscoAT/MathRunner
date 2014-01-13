@@ -13,7 +13,15 @@ canvas.height=140;
 canvas.width=80;
 var ctx = canvas.getContext('2d');
 
-var money = 1;
+
+if(localStorage.getItem("m2") == null){
+	localStorage.setItem("m1",1);
+	localStorage.setItem("m2",0);
+	localStorage.setItem("m3",0);
+	localStorage.setItem("f1",1);
+	localStorage.setItem("f2",0);
+	localStorage.setItem("f3",0);
+}
 
 function drawRunner() {
 	ctx.drawImage(runner, myRunner.x, myRunner.y, myRunner.width, myRunner.height);
@@ -23,8 +31,20 @@ function clearRunner(){
 	ctx.clearRect(myRunner.x,myRunner.y,myRunner.width,myRunner.height);
 }
 
-function checkFunds(f){
-	if(money > 0)
+function checkFunds(f,c){
+	if(localStorage.getItem(f) == 0){
+		if(localStorage.getItem("coins") >= c){
+			localStorage.setItem(f, 1);
+			changeChar(f);
+			var money = localStorage.getItem("coins");
+			money -= c;
+			localStorage.setItem("coins", money);
+			currentMoney();
+		}
+		else
+			alert("Insufficient coins");
+	}
+	else
 		changeChar(f);
 }
 
@@ -59,6 +79,22 @@ function changeChar(c){
 		clearRunner();
 		drawRunner();
 	}
+}
+
+function currentMoney(){
+	$('#moneyP').text(localStorage.getItem("coins"))
+}
+
+function resetStore(){
+	localStorage.setItem("m1",1);
+	localStorage.setItem("m2",0);
+	localStorage.setItem("m3",0);
+	localStorage.setItem("f1",1);
+	localStorage.setItem("f2",0);
+	localStorage.setItem("f3",0);
+	changeChar("m1");
+	localStorage.setItem("coins",0);
+	currentMoney();
 }
 
 window.onload = function(){

@@ -28,6 +28,13 @@
 			<a href="highScores.html"><input type="button" id="highScoreButton" value="Scores Élevés"></a>
 			<a href="preStoreScreen.html"><input type="button" id="storeButton"></a>
 			<a href="index.html"><input type="button" id="indexButton"></a>
+			
+			<p id = "moneyP">
+				<script>
+					var m = localStorage.getItem('coins');
+					$('#moneyP').text(m)
+				</script>
+			</p>
 		</div>
 	</body>
 </html>

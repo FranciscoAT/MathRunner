@@ -352,7 +352,11 @@ triggerPowerup = function(){
 	}
 	else if(typePowerup == "booster")
 	{
-		energy += 30;
+		if(energy > 70)
+			energy = 100;
+		else
+			energy += 30;
+		
 		setInfoBar();
 	}
 	else if(typePowerup == "coins")

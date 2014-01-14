@@ -38,24 +38,19 @@ var obstacleD = {
 	x: 275,
 };
 
-var jetpackD = {
-	x:0,
-	y:330,
-	width: 140,
-	height:80,
-}
-
 var obNum = 1;
+var run = null;
+var running = false;
 
 function animate() {
-	var running = true;
+	running = true;
 	part1();
 	function part1(){
 		if(running){
 			clearRunner();
 			myRunner.x++;
 			drawRunner();
-			var run = setTimeout(part1, 8);
+			run = setTimeout(part1, 8);
 		
 			if(myRunner.x+myRunner.width == obstacleX[0] || myRunner.x+myRunner.width == obstacleX[1] || myRunner.x+myRunner.width == obstacleX[2]){
 				running = false;
@@ -272,6 +267,11 @@ function rObstacle(){
 
 function clearObstacle(n){
 	ctx.clearRect((obstacleD.x*n), obstacleD.y, obstacleD.width, obstacleD.height);
+}
+
+function stopAnimation(){
+	clearTimeout(run);
+	running = false;
 }
 
 window.onload = function(){

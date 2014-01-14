@@ -4,22 +4,41 @@ var names = new Array();
 var operator = new Array();	
 var score = new Array();
 
-function initArrays(){		
-	for(var i = 0; i++; j<4){
+function initArrays(){
+	for(var i =0; i++; i<4){
+		alert("forLoop 1");
 		for(var j = 0; j++; j<10){
 			names[i][j] = "NO NAME";	
 			operator[i][j] = "NONE";
 			score[i][j] = 0;
+			
+			alert("NAME ["+i+"]["+j+"] "+names[i][j]);
 		}
 	}
 	
+	localStorage.setItem("intSetHS", true);
 	localStorage["operatorHS"] = JSON.stringify(operator);
 	localStorage["namesHS"] = JSON.stringify(names);
 	localStorage["scoreHS"] = JSON.stringify(score);
+	
+	//fillList();
 }
 
+function fillList(){
+	fillArrays();
+	for(var i = 1; i++; i<5){
+		for(var j = 1; j++; j<11){
+			$("#"+i+"op #"+j+"n").html(names[i-1][j-1])
+			$("#"+i+"op #"+j+"s").html(score[i-1][j-1])
+		}
+	}
+}
 
-
+function fillArrays(){
+	names = JSON.parse(localStorage["namesHS"]);
+	operator = JSON.parse(localStorage["operatorHS"]);
+	score = JSON.parse(localStorage["scoreHS"]);
+}
 
 
 
@@ -53,7 +72,5 @@ showHide = function(c){
 }
 
 
-if(JSON.parse(localStorage["names"]) == null)
-	initArrays();
-else
-	fillList();
+
+initArrays();

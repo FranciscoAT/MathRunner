@@ -1,5 +1,4 @@
 var currentOperators = JSON.parse(localStorage["operator"]);
-
 var names = new Array();		
 var operator = new Array();	
 var score = new Array();
@@ -29,11 +28,11 @@ function initArrays(){
 
 
 function fillList(){
-	fillArrays();
 	for(var i = 1; i<5; i++){
 		for(var j = 1; j<11; j++){
 			$("#"+i+"op #"+j+"n").html(names[i-1][j-1])
 			$("#"+i+"op #"+j+"s").html(score[i-1][j-1])
+			$("#"+i+"op #"+j+"o").html(operator[i-1][j-1])
 		}
 	}
 }
@@ -44,15 +43,19 @@ function fillArrays(){
 	score = JSON.parse(localStorage["scoreHS"]);
 }
 
-function insertLast(){
-	//var num = checkOperators();
-	var num = 0;
-	//names[num][11] = localStorage.getItem("name");
-	//score[num][11] = localStorage.getItem("points");
-	names[num][11] = "TEST";
-	score[num][11] = 1;
+function storeArrays(){
+	localStorage["operatorHS"] = JSON.stringify(operator);
+	localStorage["namesHS"] = JSON.stringify(names);
+	localStorage["scoreHS"] = JSON.stringify(score);
+}
+
+function refreshLists(){
+	var num = checkOperators();
+	names[num][10] = localStorage.getItem("name");
+	score[num][10] = localStorage.getItem("points");
 	storeOnList(num);
-	fillLists();
+	storeArrays();
+	fillList();
 }
 
 function checkOperators(){
@@ -75,24 +78,25 @@ function checkOperators(){
 		num++;
 	}
 	
-	operator[num][11] = CO;
+	operator[num][10] = CO;
 	return num;
 }
 
-function storeOnlist(op){
+function storeOnList(op){
 	var sorted = true;
-	for(var i = 10; i>0; i--){
+	for(var i = 9; i>-1; i--){
 		if(sorted){
-			if(score[op][i]< score[op][i+1])
-				var tempScore = score[op][i];
-				var tempName = name[op][i];
-				var tempOperator = operator[op][i];
-				score[op][i] = score[op][i+1];
-				name[op][i] = name[op][i+1];
-				operator[op][i] = operator[op][i+1];
-				score[op][i+1] = tempScore;
-				name[op][i+1] = tempName;
-				operator[op][i+1] = tempOperator;
+			if(score[op][i] < score[op][i+1]){
+					var tempScore = score[op][i];
+					var tempName = names[op][i];
+					var tempOperator = operator[op][i];
+					score[op][i] = score[op][i+1];
+					names[op][i] = names[op][i+1];
+					operator[op][i] = operator[op][i+1];
+					score[op][i+1] = tempScore;
+					names[op][i+1] = tempName;
+					operator[op][i+1] = tempOperator;
+				}
 		}
 		else
 			sorted = false;
@@ -128,10 +132,21 @@ showHide = function(c){
 	}
 }
 
+function fromMain(){
+	if(localStorage.getItem("arraysSetHS") == null)
+		initArrays();
+	else{
+		fillArrays();
+		fillList();
+	}
+}
 
-if(localStorage.getItem("arraysSetHS") == null)
-	initArrays();
-else{
-	fillArrays();
-	fillList();
+function fromGame(){
+	if(localStorage.getItem("arraysSetHS") == null){
+		initArrays();
+	}
+	else{
+		fillArrays();
+		refreshLists();
+	}
 }

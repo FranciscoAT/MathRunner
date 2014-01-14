@@ -16,6 +16,8 @@ var difficulty = 0; //question difficulty
 var countdown; //timer function variable
 var timer = 30; //time on the countdown timer
 
+var typePowerup = -1;
+
 getEnergy = function(){
 return energy;
 }
@@ -257,7 +259,7 @@ clearPanel = function(){
 	document.getElementById("answerPanel").style.visibility="hidden";
 	document.getElementById("confirm").style.visibility="hidden";
 	
-	var chance = 3;//Math.floor(Math.random()*30 + 1)
+	var chance = 2;//Math.floor(Math.random()*30 + 1)
 	
 	if(chance == 1)
 		powerUp("coins");
@@ -317,26 +319,44 @@ powerUp = function(type){
 	if(type == "jetpack")
 	{
 		document.getElementById("powerup").style.backgroundImage="url('images/jetPack.png')";
-		
+		typePowerup = type;
+	}
+	else if(type == "booster")
+	{
+		document.getElementById("powerup").style.backgroundImage="url('images/energy.png')";
+		typePowerup = type;
+	}
+	else if(type == "coins")
+	{
+		document.getElementById("powerup").style.backgroundImage="url('images/coins.png')";
+		typePowerup = type;
+	}
+}
+
+triggerPowerup = function(){
+
+	document.getElementById("powerup").style.visibility="hidden";
+	
+	if(typePowerup == "jetpack")
+	{
 		//*********TIME THIS TO BE THE SAME AS WHEN JETPACK FLIES OVER OBJECTS
 		for(var i = 1; i < 4; i++)
 		{
 			setTimeout(function(){questions++; 
 			points += difficulty + 1;
-			setInfoBar();}, 500*i);
+			setInfoBar();}, 1500*i);
 		}	
+		
+		stopAnimation();
+		animateJetpack();
 	}
-	else if(type == "booster")
+	else if(typePowerup == "booster")
 	{
-		document.getElementById("powerup").style.backgroundImage="url('images/energy.png')";
-	
 		energy += 30;
 		setInfoBar();
 	}
-	else if(type == "coins")
+	else if(typePowerup == "coins")
 	{
-		document.getElementById("powerup").style.backgroundImage="url('images/coins.png')";
-	
 		for(var i = 1; i < 16; i++)
 		{
 			setTimeout(function(){coins++; setInfoBar();}, 100*i);

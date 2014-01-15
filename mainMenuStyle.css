@@ -114,3 +114,11 @@ border: solid transparent 5px;
 	font-size:40px;
 	font-family:Arial;
 }
+
+#nameP{
+	position:absolute;
+	left:250px;
+	top:540px;
+	font-size:25px;
+	font-family:Arial;
+}

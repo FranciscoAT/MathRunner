@@ -56,7 +56,7 @@ function refreshLists(){
 	storeOnList(num);
 	storeArrays();
 	fillList();
-	localStorage.setItem("points", -2);
+	localStorage.setItem("points", -1);
 }
 
 function checkOperators(){

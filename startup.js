@@ -1,5 +1,6 @@
 var selected = "null";
 var name = "";
+localStorage.setItem("points", -1);
 
 setGender = function(g){
 	if (selected == "boy"){

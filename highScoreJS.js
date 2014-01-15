@@ -56,6 +56,7 @@ function refreshLists(){
 	storeOnList(num);
 	storeArrays();
 	fillList();
+	localStorage.setItem("points", -2);
 }
 
 function checkOperators(){
@@ -132,8 +133,7 @@ showHide = function(c){
 	}
 }
 
-function fromMain(){
-	location.href="highScores.html";
+if(localStorage.getItem("points") == -1){
 	if(localStorage.getItem("arraysSetHS") == null)
 		initArrays();
 	else{
@@ -141,11 +141,9 @@ function fromMain(){
 		fillList();
 	}
 }
-
-function fromGame(){
+else if(localStorage.getItem("points") >= 0){
 	if(localStorage.getItem("arraysSetHS") == null){
 		initArrays();
-		fillArrays();
 		refreshLists();
 	}
 	else{

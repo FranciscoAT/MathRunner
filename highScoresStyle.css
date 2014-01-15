@@ -1,28 +1,23 @@
 body{
 	height:600px;
 	width:1024px;
-	border:2px solid black;
 }
+
+table{
+	font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
+	border-collapse:collapse;
+	position: absolute;
+	width: 824px;
+	height:600px;
+	top: 0px;
+	left:200px;
+}
+
 
 td{
 	text-align:center
 }
 
-.tabs a{
-  cursor: pointer;
-  padding: 5px;
-  background: #fff;
-  color: #000;
-  border: 1px solid #666;
-  border-bottom: 0;
-}
-.tabs a:hover, .tabs a.active{
-  background: #666;
-  color: #fff;
-}
-
-.tabContent{
-  border: 1px solid #aaa;
-  margin: 4px 0;
-  padding: 5px;
+.alt td{
+	background-color:#EAF2D3;
 }

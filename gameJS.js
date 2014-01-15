@@ -169,9 +169,9 @@ function animateJetpack(){
 				clearJetpack();
 				myRunner.x ++;
 				drawJetpack();	
-				var flying = setTimeout(part2A, 8);
+				var flying = setTimeout(part2A, 3);
 				
-				if(myRunner.x == obstacleX[0]+obstacleD.width || myRunner.x == obstacleX[1]+obstacleD.width || myRunner.x == obstacleX[2]+obstacleD.width){
+				if(myRunner.x+myRunner.width == obstacleX[0] || myRunner.x+myRunner.width == obstacleX[1] || myRunner.x+myRunner.width == obstacleX[2]){
 					q++;
 					clearObstacle(obNum);
 					obNum++;

@@ -12,8 +12,8 @@ function initArrays(){
 	
 	for(var i =0; i<4; i++){
 		for(var j = 0; j<10; j++){
-			names[i][j] = "NO NAME";	
-			operator[i][j] = "NONE";
+			names[i][j] = "---";	
+			operator[i][j] = "---";
 			score[i][j] = 0;
 		}
 	}

@@ -133,6 +133,7 @@ showHide = function(c){
 }
 
 function fromMain(){
+	location.href="highScores.html";
 	if(localStorage.getItem("arraysSetHS") == null)
 		initArrays();
 	else{

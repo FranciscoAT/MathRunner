@@ -144,6 +144,8 @@ function fromMain(){
 function fromGame(){
 	if(localStorage.getItem("arraysSetHS") == null){
 		initArrays();
+		fillArrays();
+		refreshLists();
 	}
 	else{
 		fillArrays();

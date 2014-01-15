@@ -5,15 +5,15 @@
 		<script src="jQuery.js"></script>
 	</head>
 	<body>
-		<input type="button" value="tab1" onclick=showHide(0)>
-		<input type="button" value="tab2" onclick=showHide(1)>
-		<input type="button" value="tab3" onclick=showHide(2)>
-		<input type="button" value="tab4" onclick=showHide(3)>		
+		<input type="button" value="tab1" id="tab1" class="tabB" onclick=showHide(0)>
+		<input type="button" value="tab2" id="tab2" class="tabB" onclick=showHide(1)>
+		<input type="button" value="tab3" id="tab3" class="tabB" onclick=showHide(2)>
+		<input type="button" value="tab4" id="tab4" class="tabB" onclick=showHide(3)>		
 		
 		<div id="1op">
-			<table border="1">
+			<table id="table1" border="1">
 				<tr>
-					<th colspan="4">Meilleurs Scores (1 Opérateur)</th>
+					<th id="th1" colspan="4">Meilleurs Scores (1 Opérateur)</th>
 				</tr>
 				<tr>
 					<td width = "10%">#</td>
@@ -21,8 +21,8 @@
 					<td width="30%">Opérateur(s)</td>
 					<td width="30%">Score</td>
 				</tr>
-				<tr>
-					<td class="alt">1.</td>
+				<tr class="alt1">
+					<td>1.</td>
 					<td id="1n"></td>
 					<td id="1o"></td>
 					<td id="1s"></td>
@@ -33,7 +33,7 @@
 					<td id="2o"></td>
 					<td id="2s"></td>
 				</tr>
-				<tr>
+				<tr class="alt1">
 					<td>3.</td>
 					<td id="3n"></td>
 					<td id="3o"></td>
@@ -45,7 +45,7 @@
 					<td id="4o"></td>
 					<td id="4s"></td>
 				</tr>
-				<tr>
+				<tr class="alt1">
 					<td>5.</td>
 					<td id="5n"></td>
 					<td id="5o"></td>
@@ -57,7 +57,7 @@
 					<td id="6o"></td>
 					<td id="6s"></td>
 				</tr>
-				<tr>
+				<tr class="alt1">
 					<td>7.</td>
 					<td id="7n"></td>
 					<td id="7o"></td>
@@ -69,7 +69,7 @@
 					<td id="8o"></td>
 					<td id="8s"></td>
 				</tr>
-				<tr>
+				<tr class="alt1">
 					<td>9.</td>
 					<td id="9n"></td>
 					<td id="9o"></td>
@@ -87,9 +87,9 @@
 		
 		
 		<div id="2op">
-			<table border="1">
+			<table id="table2" border="1">
 				<tr>
-					<th colspan="4">Meilleurs Scores (2 Opérateurs)</th>
+					<th id="th2" colspan="4">Meilleurs Scores (2 Opérateurs)</th>
 				</tr>
 				<tr>
 					<td width = "10%">#</td>
@@ -97,7 +97,7 @@
 					<td width="30%">Opérateur(s)</td>
 					<td width="30%">Score</td>
 				</tr>
-				<tr>
+				<tr class="alt2">
 					<td>1.</td>
 					<td id="1n"></td>
 					<td id="1o"></td>
@@ -109,7 +109,7 @@
 					<td id="2o"></td>
 					<td id="2s"></td>
 				</tr>
-				<tr>
+				<tr class="alt2">
 					<td>3.</td>
 					<td id="3n"></td>
 					<td id="3o"></td>
@@ -121,7 +121,7 @@
 					<td id="4o"></td>
 					<td id="4s"></td>
 				</tr>
-				<tr>
+				<tr class="alt2">
 					<td>5.</td>
 					<td id="5n"></td>
 					<td id="5o"></td>
@@ -133,7 +133,7 @@
 					<td id="6o"></td>
 					<td id="6s"></td>
 				</tr>
-				<tr>
+				<tr class="alt2">
 					<td>7.</td>
 					<td id="7n"></td>
 					<td id="7o"></td>
@@ -145,7 +145,7 @@
 					<td id="8o"></td>
 					<td id="8s"></td>
 				</tr>
-				<tr>
+				<tr class="alt2">
 					<td>9.</td>
 					<td id="9n"></td>
 					<td id="9o"></td>
@@ -161,9 +161,9 @@
 		</div>
 		
 		<div id="3op">
-			<table border="1">
+			<table id="table3" border="1">
 				<tr>
-					<th colspan="4">Meilleurs Scores (3 Opérateurs)</th>
+					<th id="th3" colspan="4">Meilleurs Scores (3 Opérateurs)</th>
 				</tr>
 				<tr>
 					<td width = "10%">#</td>
@@ -171,7 +171,7 @@
 					<td width="30%">Opérateur(s)</td>
 					<td width="30%">Score</td>
 				</tr>
-				<tr>
+				<tr class="alt3">
 					<td>1.</td>
 					<td id="1n"></td>
 					<td id="1o"></td>
@@ -183,7 +183,7 @@
 					<td id="2o"></td>
 					<td id="2s"></td>
 				</tr>
-				<tr>
+				<tr class="alt3">
 					<td>3.</td>
 					<td id="3n"></td>
 					<td id="3o"></td>
@@ -195,7 +195,7 @@
 					<td id="4o"></td>
 					<td id="4s"></td>
 				</tr>
-				<tr>
+				<tr class="alt3">
 					<td>5.</td>
 					<td id="5n"></td>
 					<td id="5o"></td>
@@ -207,7 +207,7 @@
 					<td id="6o"></td>
 					<td id="6s"></td>
 				</tr>
-				<tr>
+				<tr class="alt3">
 					<td>7.</td>
 					<td id="7n"></td>
 					<td id="7o"></td>
@@ -219,7 +219,7 @@
 					<td id="8o"></td>
 					<td id="8s"></td>
 				</tr>
-				<tr>
+				<tr class="alt3">
 					<td>9.</td>
 					<td id="9n"></td>
 					<td id="9o"></td>
@@ -235,9 +235,9 @@
 		</div>
 		
 		<div id="4op">
-			<table border="1">
+			<table id="table4" border="1">
 				<tr>
-					<th colspan="4">Meilleurs Scores (4 Opérateurs)</th>
+					<th id="th4" colspan="4">Meilleurs Scores (4 Opérateurs)</th>
 				</tr>
 				<tr>
 					<td width = "10%">#</td>
@@ -245,7 +245,7 @@
 					<td width="30%">Opérateur(s)</td>
 					<td width="30%">Score</td>
 				</tr>
-				<tr>
+				<tr class="alt4">
 					<td>1.</td>
 					<td id="1n"></td>
 					<td id="1o"></td>
@@ -257,7 +257,7 @@
 					<td id="2o"></td>
 					<td id="2s"></td>
 				</tr>
-				<tr>
+				<tr class="alt4">
 					<td>3.</td>
 					<td id="3n"></td>
 					<td id="3o"></td>
@@ -269,7 +269,7 @@
 					<td id="4o"></td>
 					<td id="4s"></td>
 				</tr>
-				<tr>
+				<tr class="alt4">
 					<td>5.</td>
 					<td id="5n"></td>
 					<td id="5o"></td>
@@ -281,7 +281,7 @@
 					<td id="6o"></td>
 					<td id="6s"></td>
 				</tr>
-				<tr>
+				<tr class="alt4">
 					<td>7.</td>
 					<td id="7n"></td>
 					<td id="7o"></td>
@@ -293,7 +293,7 @@
 					<td id="8o"></td>
 					<td id="8s"></td>
 				</tr>
-				<tr>
+				<tr class="alt4">
 					<td>9.</td>
 					<td id="9n"></td>
 					<td id="9o"></td>
@@ -318,6 +318,6 @@
 		<script src="highScoreJS.js"></script>
 		
 	
-		<a href="mainMenu.html"><input type="button" id="returnButton" value="RETURN"/></a>	
+		<a href="mainMenu.html"><input type="button" id="returnButton" class="tabB" value="Menu"/></a>	
 	</body>
 </html>

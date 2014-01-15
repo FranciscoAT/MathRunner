@@ -28,7 +28,7 @@ store = function () {
 		location.href= "game2.html"
 	}
 	else{
-		alert("No operations selected!");
+		alert("Aucun opérateurs sélectionnés!");
 	}
 }
 	

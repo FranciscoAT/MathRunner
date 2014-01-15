@@ -13,11 +13,98 @@ table{
 	left:200px;
 }
 
-
 td{
 	text-align:center
 }
 
-.alt td{
+#table1{
+	border:1px solid #98bf21;
+}
+
+#table2{
+	border:1px solid #80B2FF;
+}
+
+#table3{
+	border:1px solid #BA8DBA;
+}
+
+#table4{
+	border:1px solid #CF7878;
+}
+
+.alt1{
 	background-color:#EAF2D3;
+}
+
+.alt2{
+	background-color:#D9F6FF;
+}
+
+.alt3{
+	background-color:#F2E9F2;
+}
+
+.alt4{
+	background-color:#FAE6E6;
+}	
+
+#th1{
+	font-size:30px;
+	background-color:#A7C942;
+	color:#ffffff;
+}
+
+#th2{
+	font-size:30px;
+	background-color:#33ADFF;
+	color:#ffffff;
+}
+
+#th3{
+	font-size:30px;
+	background-color:#A971A9;
+	color:#ffffff;
+}
+
+#th4{
+	font-size:30px;
+	background-color:#D63333;
+	color:#ffffff;
+}
+
+.tabB{
+	position: absolute;
+	left:0px;
+	width:199px;
+	height:99px;
+}
+
+#tab1{
+	top:63px;
+	background-color:#A7C942;
+	border: 2px solid #86A135;
+}
+
+#tab2{
+	top:163px;
+	background-color:#33ADFF;
+	border: 2px solid #298ACC;
+}
+
+#tab3{
+	top:263px;
+	background-color:#A971A9;
+	border: 2px solid #875A87;
+}
+
+#tab4{
+	top:363px;
+	background-color:#D63333;
+	border: 2px solid #AB2929;
+}
+
+#returnButton{
+	top:500px;
+	background-color:
 }

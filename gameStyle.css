@@ -38,9 +38,6 @@ body{
 	height: 70px;
 	position:absolute;
 	
-	
-	
-	border: 1px solid yellow;
 }
 
 #backButton{
@@ -64,8 +61,7 @@ body{
 }
 
 .info{
-	border: 1px solid yellow;
-	font-family: "Calibri", sans-serif;
+	font-family: "Rockwell", "Arial", sans-serif;
 	font-size: 40px;
 	text-shadow: none;
 	color: black;
@@ -79,7 +75,6 @@ body{
 	font-family: "Kristen ITC", sans-serif;
 	font-size: 20px;
 	
-	border: 1px solid yellow;
 }
 
 .lvl{
@@ -139,7 +134,6 @@ body{
 	left: 540px;
 	width: 60px;
 	height: 40px;
-	border: 1px solid yellow;
 }
 
 #answerPanel{
@@ -151,7 +145,6 @@ body{
 	
 	visibility: hidden;
 	
-	border: 1px solid #000000;
 }
 
 #question{
@@ -270,7 +263,7 @@ body{
 	-webkit-filter: drop-shadow(4px 4px 4px grey); 
 	
 	color: blue;
-	font-family: "Calibri", sans-serif;
+	font-family: "Rockwell", "Arial", sans-serif;
 	font-weight: bold;
 	font-size: 40px;
 	letter-spacing: 3px;

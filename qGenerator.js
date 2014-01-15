@@ -7,7 +7,7 @@ var correct; //is either 1-4, the correct multiple choice answer
 var points = 0; //number of points
 var coins = 0; //number of coins
 
-var energy = 100; //amount of energy
+var energy = 20; //amount of energy
 
 var questions = 0; //number of questions answered
 
@@ -213,8 +213,6 @@ animateConfirm = function(){
 rightAns = function(){
 	points += difficulty + 1;
 	coins += difficulty + 2;
-	localStorage.points = points;
-	localStorage.coins = coins;
 	
 	$("#confirm").attr("style", "background-image: url('checkmark.png')");
 	
@@ -223,7 +221,6 @@ rightAns = function(){
 
 wrongAns = function(reason){
 	energy -= 10;
-	localStorage.energy = energy;
 	
 	if(reason == "timeout")
 	{
@@ -252,6 +249,11 @@ wrongAns = function(reason){
 }
 
 gameOver = function(){
+
+	localStorage.points = points;
+	localStorage.coins = coins;
+	location.href= "highScores.html";
+	
 //**********GAMEOVER DO SOMETHING
 }
 
@@ -347,8 +349,8 @@ triggerPowerup = function(){
 			setInfoBar();}, 1500*i);
 		}	
 		
-		stopAnimation();
-		animateJetpack();
+		stopAnimation(); //stops runner momentarily	
+		animateJetpack(); //animates jetpack for runner
 	}
 	else if(typePowerup == "booster")
 	{

@@ -19,7 +19,7 @@ body{
 #powerup{
 	position: absolute;
 	width: 120px;
-	height: 120px;
+	height: 160px;
 	z-index:5;
 	
 	background:transparent;
@@ -132,7 +132,7 @@ body{
 #coinBar{
 	position:absolute;
 	top: 5px;
-	left: 540px;
+	left: 550px;
 	width: 60px;
 	height: 40px;
 }

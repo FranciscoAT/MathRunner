@@ -7,7 +7,7 @@ var correct; //is either 1-4, the correct multiple choice answer
 var points = 0; //number of points
 var coins = 0; //number of coins
 
-var energy = 20; //amount of energy
+var energy = 40; //amount of energy
 
 var questions = 0; //number of questions answered
 
@@ -261,7 +261,7 @@ clearPanel = function(){
 	document.getElementById("answerPanel").style.visibility="hidden";
 	document.getElementById("confirm").style.visibility="hidden";
 	
-	var chance = 2;//Math.floor(Math.random()*30 + 1)
+	var chance = 3;//Math.floor(Math.random()*30 + 1)
 	
 	if(chance == 1)
 		powerUp("coins");
@@ -320,17 +320,17 @@ powerUp = function(type){
 	
 	if(type == "jetpack")
 	{
-		document.getElementById("powerup").style.backgroundImage="url('images/jetPack.png')";
+		document.getElementById("powerup").style.backgroundImage="url('images/jetpackPowerup.png')";
 		typePowerup = type;
 	}
 	else if(type == "booster")
 	{
-		document.getElementById("powerup").style.backgroundImage="url('images/energy.png')";
+		document.getElementById("powerup").style.backgroundImage="url('images/energyPowerup.png')";
 		typePowerup = type;
 	}
 	else if(type == "coins")
 	{
-		document.getElementById("powerup").style.backgroundImage="url('images/coins.png')";
+		document.getElementById("powerup").style.backgroundImage="url('images/coinsPowerup.png')";
 		typePowerup = type;
 	}
 }
@@ -346,7 +346,7 @@ triggerPowerup = function(){
 		{
 			setTimeout(function(){questions++; 
 			points += difficulty + 1;
-			setInfoBar();}, 1500*i);
+			setInfoBar();}, 1800*i);
 		}	
 		
 		stopAnimation(); //stops runner momentarily	

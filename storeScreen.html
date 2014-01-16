@@ -6,14 +6,14 @@
 	</head>
 	<body>
 		<div>
-			STORE SCREEN
-			<a href="mainMenu.html"><input type="button" value="RETURN"></a>
-			<input type = "button" value = "Male 1" id = "buttonMale1" onclick= checkFunds("m1",0)>
-			<input type = "button" value = "Male 2" id = "buttonMale2" onclick= checkFunds("m2",0)>
-			<input type = "button" value = "Male 3" id = "buttonMale3" onclick= checkFunds("m3",0)>
-			<input type = "button" value = "Female 1" id= "buttonFemale1" onclick= checkFunds("f1",0)>
-			<input type = "button" value = "Female 2" id= "buttonFemale2" onclick= checkFunds("f2",0)>
-			<input type = "button" value = "Female 3" id= "buttonFemale3" onclick= checkFunds("f3",0)>
+			<p id="title">Magasin</p>
+			<a href="mainMenu.html"><input type="button" id = "mainB"></a>
+			<input type = "button" id="m1B" class = "pB" onclick= checkFunds("m1",0)>
+			<input type = "button" id="m2B" class = "pB" onclick= checkFunds("m2",120)>
+			<input type = "button" id="m3B" class = "pB" onclick= checkFunds("m3",50)>
+			<input type = "button" id="f1B" class = "pB" onclick= checkFunds("f1",0)>
+			<input type = "button" id="f2B" class = "pB" onclick= checkFunds("f2",80)>
+			<input type = "button" id="f3B" class = "pB" onclick= checkFunds("f3",100)>
 			<input type = "button" value = "RESET" id= "resetStore" onclick = resetStore()>
 			<p id = "moneyP">
 				<script>
@@ -21,15 +21,20 @@
 					$('#moneyP').text(m)
 				</script>
 			</p>
-			<br> Reference <br>
-			Male 1 = images/male1.png >> Free <br>
-			Male 2 = images/blue.png  >> $500<br>
-			Male 3 = images/red.png >> $1000<br>
-			Female 1 = images/female1.png  >>Free<br>
-			Female 2 = images/green.png >> $500<br>
-			Female 3 = images/yellow.png >> $1000<br>
 			
-			<canvas id = "temp"></canvas>
+			<p id = "m1p" class="cP">Posséder</p>
+			<p id = "m2p" class="cP">$120</p>
+			<p id = "m3p" class="cP">$50</p>
+			
+			<p id = "f1p" class="cP">Posséder</p>
+			<p id = "f2p" class="cP">$80</p>
+			<p id = "f3p" class="cP">$100</p>
+			
+			<p id = "selected">Sélectionné:</p>
+			
+			<p id="help">Appuyez sur les modèles pour les acheter!</p>
+			
+			<canvas id = "currentRunner"></canvas>
 			
 			<script src = "storeJS.js"></script>
 		</div>

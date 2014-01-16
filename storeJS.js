@@ -8,7 +8,7 @@ width: 80,
 height: 140,
 };
 
-var canvas = document.getElementById('temp');
+var canvas = document.getElementById('currentRunner');
 canvas.height=140;
 canvas.width=80;
 var ctx = canvas.getContext('2d');
@@ -42,7 +42,7 @@ function checkFunds(f,c){
 			currentMoney();
 		}
 		else
-			alert("Insufficient coins");
+			alert("Vous besoin avoir un autre "+(c-(localStorage.getItem("coins")))+" pièces");
 	}
 	else
 		changeChar(f);
@@ -55,24 +55,28 @@ function changeChar(c){
 			runner.src= localStorage.avatar;
 			break;
 		case "m2": 
-			localStorage.avatar = "images/male2.png";
-			runner.src= localStorage.avatar;
-			break;
-		case "m3": 
 			localStorage.avatar = "images/male3.png";
 			runner.src= localStorage.avatar;
+			$("#m2p").text("Posséder")
+			break;
+		case "m3": 
+			localStorage.avatar = "images/male2.png";
+			runner.src= localStorage.avatar;
+			$("#m3p").text("Posséder")
 			break;
 		case "f1": 
 			localStorage.avatar = "images/female1.png";
 			runner.src= localStorage.avatar;
 			break;
 		case "f2": 
-			localStorage.avatar = "images/female2.png";
-			runner.src= localStorage.avatar;
-			break;
-		case "f3": 
 			localStorage.avatar = "images/female3.png";
 			runner.src= localStorage.avatar;
+			$("#f2p").text("Posséder")
+			break;
+		case "f3": 
+			localStorage.avatar = "images/female2.png";
+			runner.src= localStorage.avatar;
+			$("#f3p").text("Posséder")
 			break;
 	}
 	runner.onload = function(){
@@ -95,8 +99,21 @@ function resetStore(){
 	changeChar("m1");
 	localStorage.setItem("coins",0);
 	currentMoney();
+	changeOwned();
+}
+
+function changeOwned(){
+	if(localStorage.getItem("m2") == 1)
+		$("#m2p").text("Posséder")
+	if(localStorage.getItem("m3") == 1)
+		$("#m3p").text("Posséder")
+	if(localStorage.getItem("f2") == 1)
+		$("#f2p").text("Posséder")
+	if(localStorage.getItem("f3") == 1)
+		$("#f3p").text("Posséder")
 }
 
 window.onload = function(){
 	drawRunner();
+	changeOwned();
 }

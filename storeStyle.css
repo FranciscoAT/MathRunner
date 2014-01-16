@@ -1,7 +1,6 @@
 body{
 	width:1024px;
 	height:600px;
-	border: 2px solid #000000;
 	position:absolute;
 	left:0px;
 	top:0px;
@@ -11,18 +10,136 @@ div{
 	background-image:url("images/storeBackground.png");
 	width:1024px;
 	height:600px;
-	border: 2px solid #000000;
 	position:absolute;
 	left:0px;
 	top:0px;
 }
 
-#temp{
+#currentRunner{
 	position: absolute;
 	left: 300px;
-	top: 300px;
-	border: 2px solid #000000;
+	top: 400px;
 	width: 80px;
 	height: 140px;
 }
 
+.pB{
+	background-color: transparent;
+	position:absolute;
+	border-radius:20px;
+	border: solid transparent 5px;
+}
+
+#m1B{
+	left:550px;
+	top:80px;
+	height:225px;
+	width:115px;
+}
+
+#m2B{
+	left:710px;
+	top:60px;
+	height:250px;
+	width:105px;
+}
+
+#m3B{
+	left:865px;
+	top:55px;
+	height:250px;
+	width:110px;
+}
+
+#f1B{
+	left:30px;
+	top:85px;
+	width:120px;
+	height:230px;
+}
+
+#f2B{
+	left:200px;
+	top:65px;
+	width:95px;
+	height:250px;	
+}
+
+#f3B{
+	left:333px;
+	top:58px;
+	height:250px;
+	width:115px;
+}
+
+#mainB{
+	position:absolute;
+	background-color: transparent;
+	top:0px;
+	left:868px;
+	height:53px;
+	width:156px;
+}
+
+.cP{
+	position:absolute;
+	font: 25px arial,sans-serif;
+}	
+
+#f1p{
+	left: 50px;
+	top: 300px;
+}
+
+#f2p{
+	left:220px;
+	top: 300px;
+}
+
+#f3p{
+	left:340px;
+	top:300px;
+}
+
+#m1p{
+	top:300px;
+	left:560px;
+}
+
+#m2p{
+	top:300px;
+	left:720px;
+}
+
+#m3p{
+	top:300px;
+	left:875px;
+}
+
+#title{
+	font: 40px arial,sans-serif;
+	position: absolute;
+	top: -30px;
+	left:425px;
+}
+
+#selected{
+	position:absolute;
+	left:100px;
+	top:425px;
+	font: 30px arial,sans-serif;
+}
+
+#moneyP{
+	position: absolute;
+	top: 425px;
+	left:625px;
+	font: 30px arial,sans-serif;
+}
+
+#help{
+	position:absolute;
+	top:500px;
+	left: 600px;
+	font: 15px arial,sans-serif;
+}

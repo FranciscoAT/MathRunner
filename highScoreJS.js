@@ -87,7 +87,7 @@ function storeOnList(op){
 	var sorted = true;
 	for(var i = 9; i>-1; i--){
 		if(sorted){
-			if(score[op][i] < score[op][i+1]){
+			if(parseInt(score[op][i],10) < parseInt(score[op][i+1],10)){
 					var tempScore = score[op][i];
 					var tempName = names[op][i];
 					var tempOperator = operator[op][i];

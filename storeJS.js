@@ -55,11 +55,11 @@ function changeChar(c){
 			runner.src= localStorage.avatar;
 			break;
 		case "m2": 
-			localStorage.avatar = "images/blue.png";
+			localStorage.avatar = "images/male2.png";
 			runner.src= localStorage.avatar;
 			break;
 		case "m3": 
-			localStorage.avatar = "images/red.png";
+			localStorage.avatar = "images/male3.png";
 			runner.src= localStorage.avatar;
 			break;
 		case "f1": 
@@ -67,11 +67,11 @@ function changeChar(c){
 			runner.src= localStorage.avatar;
 			break;
 		case "f2": 
-			localStorage.avatar = "images/green.png";
+			localStorage.avatar = "images/female2.png";
 			runner.src= localStorage.avatar;
 			break;
 		case "f3": 
-			localStorage.avatar = "images/yellow.png";
+			localStorage.avatar = "images/female3.png";
 			runner.src= localStorage.avatar;
 			break;
 	}

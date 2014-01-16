@@ -7,6 +7,16 @@ body{
 	top:0px;
 }
 
+div{
+	background-image:url("images/storeBackground.png");
+	width:1024px;
+	height:600px;
+	border: 2px solid #000000;
+	position:absolute;
+	left:0px;
+	top:0px;
+}
+
 #temp{
 	position: absolute;
 	left: 300px;
@@ -15,3 +25,4 @@ body{
 	width: 80px;
 	height: 140px;
 }
+

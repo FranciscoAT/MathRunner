@@ -44,6 +44,7 @@ body{
 	position:absolute;
 	height: 100px;
 	width: 100px;
+	z-index: 2;
 	
 	background:transparent;
 	border: none;
@@ -260,7 +261,7 @@ body{
 	background-size: contain;
 	background-repeat: no-repeat;
 	background-position: left center;
-	-webkit-filter: drop-shadow(4px 4px 4px grey); 
+	-webkit-filter: drop-shadow(5px 5px 5px grey); 
 	
 	color: blue;
 	font-family: "Rockwell", "Arial", sans-serif;

@@ -105,12 +105,23 @@ function resetStore(){
 function changeOwned(){
 	if(localStorage.getItem("m2") == 1)
 		$("#m2p").text("Posséder")
+	else
+		$("#m2p").text("$120")
+		
 	if(localStorage.getItem("m3") == 1)
 		$("#m3p").text("Posséder")
+	else
+		$("#m3p").text("$50")
+		
 	if(localStorage.getItem("f2") == 1)
 		$("#f2p").text("Posséder")
+	else
+		$("#f2p").text("$80")
+		
 	if(localStorage.getItem("f3") == 1)
 		$("#f3p").text("Posséder")
+	else
+		$("#f3p").text("$100")
 }
 
 window.onload = function(){

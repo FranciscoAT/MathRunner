@@ -12,10 +12,11 @@
 		<script src="gameJS.js"></script>
 		
 		<input type="button" id="powerup" onclick="triggerPowerup()">
+		<!-- back button make points = -1-->
 
 		<div id="infoBar">
 			
-			<a href = "MainMenu.html"><input type="button" id="backButton" onclick=""></a>
+			<a href = "MainMenu.html"><input type="button" id="backButton"></a>
 			
 			<span id="pointBar">
 				Score: <span class="info" id = "points">0</span> 
@@ -28,13 +29,25 @@
 			
 			<span id="energyBar">
 				<img id="bolt" src="bolt.png" height="40px" width="40px">
+				<img id="spark" src="energyspark.png">
 				Energy: <span id = "energy"></span> 
+				
 			</span>
 			
 			<span id="lvlBar">
-				Level: <span class="lvl" id = "level">1</span> 
+				Niveau: <span class="lvl" id = "level">1</span> 
 				Question: <span class="lvl" id = "questions">0</span>
 			</span>
+		
+		</div>
+		
+		<div id="gameoverPanel">
+			
+			<span id="gameoverMsg"> Vous êtes hors de l'énergie </span>
+			<span id="gameover">PARTIE TERMINÉE</span>
+			<span class="gameoverInfo" id="gameoverOpInfo"> Opérateurs: <span id="gameoverOp"></span> </span>
+			<span class="gameoverInfo" id="gameoverPtInfo"> Score: <span id="gameoverPt"></span> </span>
+			<a href="highScores.html"><input type="button" value="Soumettre" id="gameoverSubmit"></a>
 		
 		</div>
 		
@@ -54,9 +67,6 @@
 			</div>
 			
 			<div id="timer">Timer</div>
-			
-			<p id="demo">1/2/3/4</p> 
-			<input type="button" value="test" id="test" onclick="clearPanel()">
 		
 		</div>
 	</body>

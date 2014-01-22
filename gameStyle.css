@@ -28,9 +28,27 @@ body{
 	background-size: contain;
 	background-repeat: no-repeat;
 	background-position: center center;
-	-webkit-filter: drop-shadow(3px 3px 5px grey); 
+	-webkit-filter: drop-shadow(3px 3px 5px yellow);
 	
 	visibility: hidden;
+	
+	-webkit-animation: animatePowerup 0.5s linear infinite alternate;
+}
+
+@-webkit-keyframes animatePowerup{
+	0%{
+		width: 120px;
+		height: 160px;
+		-webkit-transform: rotate(-10deg);
+	}
+	
+	50%{-webkit-transform: none;}
+	
+	100%{
+		width:132px;
+		height:176px;
+		-webkit-transform: rotate(10deg);
+	}
 }
 
 #infoBar{
@@ -71,7 +89,7 @@ body{
 #lvlBar{
 	position: absolute;
 	top: 10px;
-	left: 120px;
+	left: 110px;
 	
 	font-family: "Kristen ITC", sans-serif;
 	font-size: 20px;
@@ -101,27 +119,41 @@ body{
 	left: 650px;
 	
 	background: white;
-	background-image:url('energybar.png');
+	background-image:url('energybarG.png');
 	background-repeat: no-repeat;
 
 	border: 1px solid black;
 	border-radius: 20px;
 	
-	-webkit-animation-duration: 1s;
-	-webkit-animation-timing-function: linear;
-	-webkit-animation-fill-mode: forwards;
-	-webkit-animation-direction: normal;
+	transition: background-position 1s, background-image 1s;
 }
 
-@-webkit-keyframes decEnergy{
-	100% {
-		background-position: -35px 0px;
+#spark{
+	position: absolute;
+	left: -70px;
+	
+	-webkit-animation: animateSpark 2.8s linear infinite;
+}
+
+@-webkit-keyframes animateSpark{
+	0%{
+		opacity: 0;
+		left: -70px;
 	}
+	
+	10%{opacity:1;}
+	90%{opacity: 1;}
+	
+	100%{
+		opacity: 0;
+		left: 300px;
+	}	
 }
 
 #bolt, #coin{
 	position:absolute;
 	left: -40px;
+	z-index: 2;
 	-webkit-filter: drop-shadow(2px 2px 3px grey);
 }
 
@@ -145,7 +177,86 @@ body{
 	top:13%;
 	
 	visibility: hidden;
+}
+
+#gameoverPanel{
+	width:100%;
+	height: 300px;
+	position:absolute;
+	left:0px;
+	top:15%;
+
+	z-index: 10;
 	
+	visibility: hidden;
+}
+
+#gameoverMsg{
+	position: absolute;
+	top: 10px;
+	left: 100px;
+	
+	color: black;
+	font-family: "Rockwell", sans-serif;
+	font-size: 40px;
+	font-weight: bold;
+}
+
+#gameover{
+	position: absolute;
+	width: 100%;
+	top: 50px;
+	
+	text-align: center;
+	color: white;
+	letter-spacing: 5px;
+	font-family: "Rockwell", sans-serif;
+	font-size: 90px;
+	font-weight: bold;
+	text-shadow: -5px -5px 0px red, 5px -5px 0px red, -5px 5px 0px red, 5px 5px 0px red;
+}
+
+.gameoverInfo{
+	position: absolute;
+	top: 170px;
+	
+	color: white;
+	font-family: "Rockwell", sans-serif;
+	font-size: 50px;
+	text-shadow: -2px -2px 0px blue, 2px -2px 0px black, -2px 2px 0px black, 2px 2px 0px black;
+}
+
+#gameoverOpInfo{left: 30px}
+#gameoverPtInfo{left: 500px}
+#gameoverOp{color:black; text-shadow: none; font-weight: bold;}
+#gameoverPt{color:black; text-shadow: none; font-weight: bold;}
+
+#gameoverSubmit{
+	position:absolute;
+	top: 170px;
+	left: 790px;
+	width: 190px;
+	height: 55px;
+	
+	text-align: center;
+	color: black;
+	letter-spacing: 0px;
+	font-family: "Rockwell", sans-serif;
+	font-size: 30px;
+	font-weight: bold;
+	
+	border: 3px outset white;
+	border-radius: 30px;
+	box-shadow: 5px 5px 6px grey;
+	
+	background-color:white;
+}
+
+#gameoverSubmit:active{
+	top: 175px;
+	left: 795px;
+	color:grey;
+	box-shadow:none;
 }
 
 #question{

@@ -17,86 +17,199 @@ div{
 
 h1{
 	text-align:center;
+	font-family: 'Rockwell', sans-serif;
+	color: white;
+	font-size: 50px;
+	text-shadow: -3px -3px 0px black, 3px -3px 0px black, -3px 3px 0px black, 3px 3px 0px black;
+	
+	-webkit-animation: animateTitle 3s linear infinite alternate;
+}
+
+@-webkit-keyframes animateTitle{
+	0%{color: yellow}
+	50%{color:white}
+	100%{color: orange}
+}
+
+input{
+	position: absolute;
+	border-radius:20px;
+	border: solid transparent 5px;
+}
+
+.wiggle{
+	-webkit-animation: animateWiggle 0.7s linear infinite alternate;
+}
+
+@-webkit-keyframes animateWiggle{
+	0%{-webkit-transform: rotate(-3deg);}
+	50%{-webkit-transform: none;}
+	100%{-webkit-transform: rotate(3deg);}
 }
 
 .colorToggle{
-	border-color:blue;
+	-webkit-animation: animatePlay 3s linear infinite normal;
 }
 
 .operator{
 	height:100px;
-	width:100px;
-	top:200px;
+	width:120px;
+	top:190px;
+	
 	background: transparent;
+	border: none;
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center top;
 }
 
 #addButton{
-	left:130px;
-	height:80px;
-	width:90px;
+	left:115px;
+	
+	background-image:url('images/menu/add.png');
 }
 
 #subButton{
-	left:270px;
-	height:70px;
-	width:90px;
+	left:260px;
+	height:90px;
+	width:110px;
+
+	background-image:url('images/menu/sub.png');
 }
 
 #divButton{
-	left:400px;
-	height:75px;
-	width:95px;
+	left:390px;
+	height:90px;
+	width:120px;
+	
+	background-image:url('images/menu/div.png');
 }
 
 #multiButton{
-	left:525px;
-	top:200px;
-	height:80px;
+	left:510px;
+	top: 185px;
+	height:90px;
+	width:120px;
+	
+	background-image:url('images/menu/multi.png');
 }
 
 #instructionButton{
-	left:840px;
+	left:820px;
 	top:0px;
-	height:120px;
-	width:140px;
+	height:150px;
+	width:160px;
+	
 	background: transparent;
+	border: none;
+	background-image:url('images/menu/help.png');
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center top;
+	-webkit-filter: drop-shadow(4px 4px 5px grey); 
+}
+
+#instructionButton:active{
+	left:825px;
+	height: 160px;
+	width: 165px;
+	-webkit-filter: drop-shadow(0px 0px 0px grey); 
 }
 
 #highScoreButton{
-	left:50px;
-	top:450px;
-	height:100px;
-	width:150px;
-	border: solid black 5px;
-}
-#storeButton{
-	left:550px;
-	top:420px;
-	height:60px;
-	width:120px;	
+	left:60px;
+	top:430px;
+	height:120px;
+	width:180px;
+	
 	background: transparent;
+	border: none;
+	background-image:url('images/menu/hs.png');
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center top;
+	-webkit-filter: drop-shadow(4px 4px 5px grey); 
+}
+
+#highScoreButton:active{
+	left:65px;
+	top:435px;
+	-webkit-filter: drop-shadow(0px 0px 0px grey); 
+}
+
+#storeButton{
+	left:530px;
+	top:280px;
+	height:300px;
+	width:150px;	
+	
+	background: transparent;
+	border: none;
+	background-image:url('images/menu/store.png');
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center center;
+	-webkit-filter: drop-shadow(4px 4px 5px grey); 
+}
+
+#storeButton:active{
+	left:535px;
+	top:285px;
+	-webkit-filter: drop-shadow(0px 0px 0px grey); 
 }
 
 #startGame{
-	left:740px;
-	top:390px;
-	height:125px;
-	width:210px;
+	left:730px;
+	top:380px;
+	height:140px;
+	width:230px;
+	
 	background: transparent;
+	border: none;
+	background-image:url('images/menu/play.png');
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center center;
+	-webkit-filter: drop-shadow(5px 5px 5px grey); 
+	
+	-webkit-animation: animatePlay 5s linear infinite normal;
+}
+
+#startGame:active{
+	left:735px;
+	top:385px;
+	-webkit-filter: drop-shadow(0px 0px 0px grey); 
+}
+
+@-webkit-keyframes animatePlay{
+	0%{-webkit-filter: drop-shadow(2px 2px 15px red);}
+	20%{-webkit-filter: drop-shadow(2px 2px 15px orange);}
+	40%{-webkit-filter: drop-shadow(2px 2px 15px yellow);}
+	60%{-webkit-filter: drop-shadow(2px 2px 15px green);}
+	80%{-webkit-filter: drop-shadow(2px 2px 15px blue);}
+	90%{-webkit-filter: drop-shadow(2px 2px 15px purple);}
+	100%{-webkit-filter: drop-shadow(2px 2px 15px red);}
 }
 
 #indexButton{
 	left:0px;
 	top:0px;
-	height:110px;
+	height:115px;
 	width:165px;
+	
 	background: transparent;
+	border: none;
+	background-image:url('images/menu/back.png');
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: left top;
+	-webkit-filter: drop-shadow(4px 4px 5px grey); 
 }
 
-input{
-position: absolute;
-border-radius:20px;
-border: solid transparent 5px;
+#indexButton:active{
+	height:125px;
+	width: 175px;
+	-webkit-filter: drop-shadow(0px 0px 0px grey); 
 }
 
 #selectedChar{
@@ -109,16 +222,18 @@ border: solid transparent 5px;
 
 #moneyP{
 	position:absolute;
-	left:775px;
+	left:785px;
 	top:205px;
 	font-size:40px;
-	font-family:Arial;
+	font-family: "Rockwell", sans-serif;
 }
 
 #nameP{
 	position:absolute;
-	left:250px;
-	top:540px;
+	left:210px;
+	top:535px;
+	color:black;
 	font-size:25px;
-	font-family:Arial;
+	font-family: "Rockwell", sans-serif;
+	text-shadow: -2px -2px 0px white, 1px -1px 0px white, -1px 1px 0px white, 2px 2px 0px white;
 }

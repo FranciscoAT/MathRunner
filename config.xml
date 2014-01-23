@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <widget xmlns="http://www.w3.org/ns/widgets"
         xmlns:rim="http://www.blackberry.com/ns/widgets"
-        version="2.0.0.0">
+        version="1.0.0.0">
  
-  <author href="http://www.example.com/"
-          rim:copyright="Copyright 1998-2012 My Corp">My Corp</author>
+  <author
+          rim:copyright="Copyright 2014 Les Maitres des Mathematiques">Les Maitres des Mathematiques</author>
  
   <name>Math Coureur</name>
  
@@ -15,12 +15,12 @@
   <rim:orientation mode="landscape"/>
  
   <rim:loadingScreen backgroundImage="images/welcomeScreen.png"
-                     foregroundImage="foreground.gif"
+					 onFirstLaunch="true"
                      onLocalPageLoad="true">
     <rim:transitionEffect type="zoomIn"/>
   </rim:loadingScreen>
          
-  <rim:category name="games"/>    
+  <rim:category name="Math Coureur"/>    
  
   <rim:permissions>
     <rim:permit>access_shared</rim:permit>
@@ -28,7 +28,7 @@
     <rim:permit>use_camera</rim:permit>  
   </rim:permissions>
  
-  <icon src="icons/example.png"/>
+  <icon src="images/male1.png"/>
  
   <content src="index.html"/>
  

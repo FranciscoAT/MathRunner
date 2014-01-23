@@ -12,7 +12,6 @@ body{
 	position:absolute;
 	left:0px;
 	top:0px;
-	border: 2px solid #000000;
 	background-image:url("images/gameBackground.png");
 }
 

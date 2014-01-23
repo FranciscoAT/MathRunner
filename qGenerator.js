@@ -7,7 +7,7 @@ var correct; //is either 1-4, the correct multiple choice answer
 var points = 0; //number of points
 var coins = 0; //number of coins
 
-var energy = 10; //amount of energy
+var energy = 100; //amount of energy
 
 var questions = 0; //number of questions answered
 
@@ -27,7 +27,7 @@ getQuestion = function(){
 	//GUI becomes visible and defaults to original
 	document.getElementById("answerPanel").style.visibility="visible";
 	document.getElementById("confirm").style.visibility="hidden";
-	//document.getElementById("powerup").style.visibility="hidden";
+	document.getElementById("powerup").style.visibility="hidden";
 	$(".multiChoice").attr("disabled", false);
 	$(".multiChoice").attr("style", "color: blue");
 	
@@ -36,17 +36,7 @@ getQuestion = function(){
 	setInfoBar();
 	
 	clearInterval(countdown); //used to reset timer when new question is generated
-	timer = 3;
-
-	//*****little check
-	var yay = false;
-	for(i=0;i<operator.length;i++)
-		if(operator[i])
-			yay = true;
-	
-	if(!yay)
-		operator[0]=true;
-	//end little check
+	timer = 30;
 	
 	//generating question with random operator chosen out of selected operators
 	var num;
@@ -238,9 +228,6 @@ wrongAns = function(reason){
 		document.getElementById("answer" +reason).style.color="red";
 	}
 	
-	//if(energy <= 0)
-	//	gameOver();
-	//if(energy > 0)
 		part3W(); //animation for runner
 	
 }
@@ -262,7 +249,6 @@ gameOver = function(){
 		
 	document.getElementById("gameoverPt").innerHTML=points;
 	document.getElementById("gameoverOp").innerHTML=op;
-	//location.href= "highScores.html";
 	
 	setTimeout(function(){stopAnimation();}, 50);
 	
@@ -279,7 +265,7 @@ clearPanel = function(){
 		gameOver();
 	else
 	{
-		var chance = 3;//Math.floor(Math.random()*30 + 1) //chance for powerup
+		var chance = Math.floor(Math.random()*18 + 1) //chance for powerup
 	
 		if(chance == 1)
 			powerUp("coins");
@@ -312,12 +298,6 @@ setEnergyBar = function(){
 		document.getElementById("energyBar").style.backgroundImage = "url(energyBarR.png)";
 }
 
-animateEnergyBar = function(){
-	var element = document.getElementById("energyBar"),
-		style = window.getComputedStyle(element),
-		x = style.getPropertyValue("left");
-}
-
 powerUp = function(type){
 
 	var x = Math.floor(Math.random()*800 + 50);
@@ -345,14 +325,6 @@ powerUp = function(type){
 }
 
 triggerPowerup = function(){
-	
-	//document.getElementById("powerup").style.backgroundSize="160px 100px";
-	document.getElementById("powerup").style.backgroundImage="url('images/powerupBlow.png')";
-	
-	for(var j = 2; j < 7; j++)
-	{
-	//	setTimeout(function(){document.getElementById("powerup").style.backgroundImage="url('images/powerupBlow" + j + ".png')"; prompt(j);}, 1000*j);
-	}	
 	
 	if(typePowerup == "jetpack")
 	{
@@ -384,5 +356,5 @@ triggerPowerup = function(){
 		}	
 	}
 	
-	//document.getElementById("powerup").style.visibility="hidden";
+	document.getElementById("powerup").style.visibility="hidden";
 }
